@@ -11,6 +11,8 @@ import { MdInputModule } from '@angular/material';
 
 import { ConfigService } from './services/config/config.service';
 import { ApiService } from './services/api/api.service';
+import { ScheduleService } from './services/schedule/schedule.service';
+
 
 import { AppComponent } from './app.component';
 import { EventListComponent } from './event-list/event-list.component';
@@ -46,8 +48,9 @@ import { ScheduleDetailComponent } from './schedule-detail/schedule-detail.compo
   ],
   providers: [ // creators of services that this module contributes to the global collection of services; they become accessible in all parts of the app.
     ApiService,
-    Title,
-    ConfigService
+    ConfigService,
+    ScheduleService,
+    Title
   ],
   bootstrap: [AppComponent]
 })
