@@ -1,0 +1,35 @@
+<svg width="41px" height="41px" viewBox="0 0 41 41" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="99.0214445%" id="linearGradient-1">
+            <stop stop-color="#000000" stop-opacity="0" offset="0%"></stop>
+            <stop stop-color="#000000" stop-opacity="0.02" offset="80%"></stop>
+            <stop stop-color="#000000" stop-opacity="0.04" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-2">
+            <stop stop-color="#FFFFFF" stop-opacity="0.12" offset="0%"></stop>
+            <stop stop-color="#FFFFFF" stop-opacity="0.06" offset="20%"></stop>
+            <stop stop-color="#FFFFFF" stop-opacity="0" offset="100%"></stop>
+        </linearGradient>
+        <circle id="path-3" cx="19.52" cy="19.52" r="19.52"></circle>
+        <mask id="mask-4" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="39.04" height="39.04" fill="white">
+            <use xlink:href="#path-3"></use>
+        </mask>
+        <mask id="mask-5" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="39.04" height="39.04" fill="white">
+            <use xlink:href="#path-3"></use>
+        </mask>
+    </defs>
+    <g id="Group-9-Copy" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(20.309565, 20.480000) rotate(-180.000000) translate(-20.309565, -20.480000) translate(0.309565, 0.480000)">
+        <g id="fab">
+            <g id="button-bg">
+                <use stroke="url(#linearGradient-1)" mask="url(#mask-4)" fill="#F7F7F8" fill-rule="evenodd" xlink:href="#path-3"></use>
+                <use stroke="url(#linearGradient-2)" mask="url(#mask-5)" xlink:href="#path-3"></use>
+            </g>
+        </g>
+        <g id="ic_arrow_forward_black_24px" transform="translate(9.335652, 9.369600)">
+            <g id="Group">
+                <polygon id="Shape" points="0 0 20.3686957 0 20.3686957 20.3686957 0 20.3686957"></polygon>
+                <polygon id="Shape" fill="#000000" points="10.1843478 3.39478261 8.98768696 4.59144348 13.7234087 9.33565217 3.39478261 9.33565217 3.39478261 11.0330435 13.7234087 11.0330435 8.98768696 15.7772522 10.1843478 16.973913 16.973913 10.1843478"></polygon>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,15 @@
+.example-card {
+  width: 400px;
+}
+
+.example-header-image {
+  background-image: url('/assets/images/whenhub-logo-square.png');
+  background-size: cover;
+}
+.example-form {
+  /*width: 500px;*/
+}
+
+.example-full-width {
+  width: 100%;
+}

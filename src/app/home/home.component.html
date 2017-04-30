@@ -1,0 +1,67 @@
+<div *ngIf="!_configService.whenHubApiKey; else keyExists">
+  <md-grid-list cols="2" rowHeight="2:1.5">
+    <md-grid-tile>
+      <md-card class="example-card">
+        <form class="example-form" [formGroup]='apiKeyForm' (ngSubmit)="setApiKey()">
+          <md-card-header>
+            <div md-card-avatar class="example-header-image"></div>
+            <md-card-title>API Key Required</md-card-title>
+            <md-card-subtitle>Almost there...</md-card-subtitle>
+          </md-card-header>
+          <md-card-content>
+            <md-input-container class="example-full-width">
+              <input mdInput formControlName="apiKey" [formControl]="apiKeyForm.controls['apiKey']" type="text" name="apiKey" autofocus
+                placeholder="API key" />
+            </md-input-container>
+            <p>Before you can manage your schedule(s), we need your API key.</p>
+            <p>You can find it in your profile page, on whenhub.com. It's only stored in the application and not sent anywhere.
+              Once you close your browser or refresh the page, it's gone.</p>
+          </md-card-content>
+          <md-card-actions>
+            <button md-button type="submit">Go</button>
+          </md-card-actions>
+        </form>
+      </md-card>
+    </md-grid-tile>
+  </md-grid-list>
+</div>
+<ng-template #keyExists>
+  <md-grid-list cols="2" rowHeight="2:1.5">
+    <md-grid-tile>
+      <md-card class="example-card">
+        <md-card-header>
+          <div md-card-avatar class="example-header-image"></div>
+          <md-card-title>Shiba Inu</md-card-title>
+          <md-card-subtitle>Dog Breed</md-card-subtitle>
+        </md-card-header>
+        <img md-card-image src="/assets/images/whenhub-logo-square.png">
+        <md-card-content>
+          <p>
+            Manage your schedule.
+          </p>
+        </md-card-content>
+        <md-card-actions>
+          <button md-button routerLink="/events">Go</button>
+        </md-card-actions>
+      </md-card>
+    </md-grid-tile>
+    <md-grid-tile>
+      <md-card class="example-card">
+        <md-card-header>
+          <div md-card-avatar class="example-header-image"></div>
+          <md-card-title>Shiba Inu</md-card-title>
+          <md-card-subtitle>Dog Breed</md-card-subtitle>
+        </md-card-header>
+        <img md-card-image src="/assets/images/public-events-icon.png">
+        <md-card-content>
+          <p>
+            See how the users see your events.
+          </p>
+        </md-card-content>
+        <md-card-actions>
+          <button md-button routerLink="/event-list">Go</button>
+        </md-card-actions>
+      </md-card>
+    </md-grid-tile>
+  </md-grid-list>
+</ng-template>

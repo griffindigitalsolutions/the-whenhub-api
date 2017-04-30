@@ -1,13 +1,28 @@
 import { TestBed, async } from '@angular/core/testing';
 
 import { AppComponent } from './app.component';
+import { MdSidenav, MdDialog, MdDialogConfig } from "@angular/material";
+import { FooterComponent } from './ui-elements/footer/footer.component';
+import { HeaderComponent } from './ui-elements/header/header.component';
+import { RouterTestingModule } from '@angular/router/testing';
+import { MaterialModule } from '@angular/material';
+import { ConfigService } from './services/config/config.service';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        AppComponent
+        AppComponent,
+        FooterComponent,
+        HeaderComponent
       ],
+      imports: [
+        RouterTestingModule.withRoutes([]),
+        MaterialModule
+      ],
+      providers: [
+        ConfigService
+      ]
     }).compileComponents();
   }));
 
