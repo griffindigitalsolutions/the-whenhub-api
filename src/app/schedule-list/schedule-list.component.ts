@@ -11,17 +11,17 @@ import { Title } from '@angular/platform-browser';
 })
 export class ScheduleListComponent implements OnInit {
 
-  public schedules : [object] = [{}]; //array of objects : todo: implement model
-  
-  constructor(public apiService : ApiService, 
-      public configService : ConfigService, 
-      public titleService : Title,
-      public scheduleService: ScheduleService) {
+  public schedules: any  = []; //array of objects : todo: implement model
+
+  constructor(public apiService: ApiService,
+    public configService: ConfigService,
+    public titleService: Title,
+    public scheduleService: ScheduleService) {
     //set the page title
     titleService.setTitle('Edit or add schedule');
 
     //we will need the data
-    this.getData();
+    this.getSchedules();
   }
 
   ngOnInit() {
@@ -30,12 +30,14 @@ export class ScheduleListComponent implements OnInit {
   /**
    * Get the data from the service (schedules in this case)
    */
-  getData(){
+  getSchedules() {
     this.scheduleService.getSchedules().subscribe(
       (data) => {
-        console.log('GETTING DATA')
-        console.log(data)
-        // this.schedules = data;
+        if (data) {
+          this.schedules = data;
+          console.log('GETTING DATA')
+          console.log(this.schedules)
+        }
       },
       (error) => {
         alert('error')

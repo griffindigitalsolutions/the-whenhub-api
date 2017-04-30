@@ -1,3 +1,22 @@
-<p>
-  schedule-list works!
-</p>
+<h1>My Schedules</h1>
+<md-list>
+  <h3 md-subheader>Folders</h3>
+  <md-list-item *ngFor="let s of schedules">
+    <md-icon md-list-icon>date_range</md-icon>
+    <h4 md-line>{{ s.name }}</h4>
+    <p md-line> {{ s.description }} </p>
+    <p md-line> {{ s.scope }} </p>
+    <p md-line> {{ s.tags }} </p>
+    <div class="button-row">
+      <button md-line md-raised-button routerLink="{{s.id}}">EDIT</button>
+    </div>
+  </md-list-item>
+  <md-divider></md-divider>
+  <h3 md-subheader>Notes</h3>
+  <md-list-item *ngFor="let note of notes">
+    <md-icon md-list-icon>note</md-icon>
+    <h4 md-line>{{note.name}}</h4>
+    <p md-line> {{note.updated | date}} </p>
+  </md-list-item>
+</md-list>
+ADD SCHEDULE

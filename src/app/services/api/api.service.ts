@@ -39,16 +39,16 @@ export class ApiService {
     let requestOptions = new RequestOptions({ headers: this._headers });
 
     return this._http.post(data.url, data.body, requestOptions)
-        .map((res : Response) => {
-            //if status is 204 
-            if (res.status == 204) {
-              //on 404 we return standard data missing object
-              return { 'data': false, 'dataMissing' : true, 'dataError': false };
-            } else {
-              return res.json(); //this would return errors as well
-            }
-          } 
-        )
+      .map((res: Response) => {
+        //if status is 204 
+        if (res.status == 204) {
+          //on 404 we return standard data missing object
+          return { 'data': false, 'dataMissing': true, 'dataError': false };
+        } else {
+          return res.json(); //this would return errors as well
+        }
+      }
+      )
     //delay for testing
     // .delay(new Date(Date.now() + 2000));
   }
@@ -73,7 +73,15 @@ export class ApiService {
     //prepare the RequestOptions
     let requestOptions = new RequestOptions({ headers: this._headers });
 
-    return this._http.get(data.url, requestOptions).map(res => res.json());
+    return this._http.get(data.url, requestOptions).map((res: Response) => {
+      //if status is 204 
+      if (res.status == 204) {
+        //on 204 we return standard data missing object
+        return { 'data': false, 'dataMissing': true, 'dataError': false };
+      } else {
+        return res.json(); //this would return errors as well
+      }
+    });
 
   }
 

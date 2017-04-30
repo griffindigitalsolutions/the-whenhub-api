@@ -1,4 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostBinding } from '@angular/core';
+import { ConfigService } from '../services/config/config.service';
+import { ScheduleService } from '../services/schedule/schedule.service';
+import { ApiService } from '../services/api/api.service';
+import { Title } from '@angular/platform-browser';
+import { Router, ActivatedRoute, Params } from '@angular/router';
+import 'rxjs/add/operator/switchMap';
+import { Observable } from 'rxjs/Observable';
+
 
 @Component({
   selector: 'app-schedule-detail',
@@ -7,9 +15,45 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ScheduleDetailComponent implements OnInit {
 
-  constructor() { }
+  private _schedule: Object = {};
+  private routerState: any;
+
+  constructor(public apiService: ApiService,
+    public configService: ConfigService,
+    public titleService: Title,
+    public scheduleService: ScheduleService,
+    public router: Router, public activatedRoute: ActivatedRoute) {
+    //set the page title
+    titleService.setTitle('Edit schedule');
+
+    //get schedule details
+    this.getSchedule();
+
+  }
 
   ngOnInit() {
+    console.info(this.activatedRoute.params['_value'].id)
+    this.activatedRoute.params
+      // .switchMap((params: Params) => { console.info('xxx'); console.info(params.id); return Observable.of(); })
+      .subscribe((data) => { console.info('data'); console.info(data); });
+  }
+
+  /**
+   * Get the details
+   */
+  getSchedule() {
+    // this.scheduleService.getSchedule(scheduleId).subscribe(
+    //   (data) => {
+    //     if (data) {
+    //       this._schedule = data;
+    //       console.log('GETTING DATA')
+    //       console.log(this._schedule)
+    //     }
+    //   },
+    //   (error) => {
+    //     alert('error')
+    //   }
+    // );
   }
 
 }
