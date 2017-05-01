@@ -13,5 +13,10 @@ export class ScheduleService {
         url: 'https://api.whenhub.com/api/users/me/schedules?access_token=' + this.configService.whenHubApiKey
       });
   }
+  getScheduleDetails(scheduleId){
+      return this.apiService.get({
+        url: 'https://api.whenhub.com/api/schedules/'+ scheduleId +'?filter[include]=media&filter[include][events]=media&access_token=' + this.configService.whenHubApiKey
+      });
+  }
 
 }

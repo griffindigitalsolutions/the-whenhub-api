@@ -1,1 +1,11 @@
-{{ schedule | json }}
+<md-list>
+  <h3 md-subheader>Events for this schedule</h3>
+  <md-list-item *ngFor="let e of _schedule.events">
+    <md-icon md-list-icon>folder</md-icon>
+    <h4 md-line>{{ e.name }}</h4>
+    <p md-line> {{ e.description }} </p>
+    <!--<p md-line> {{ e | json }} </p>-->
+    <p md-line> {{ e.startDate | date }} </p>
+    <p md-line> {{ e.startDate | date }} </p>
+  </md-list-item>
+</md-list>

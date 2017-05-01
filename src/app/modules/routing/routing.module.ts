@@ -4,7 +4,6 @@ import { Route, Routes, RouterModule, CanActivate } from '@angular/router';
 import { HomeComponent } from '../../home/home.component'
 import { ScheduleListComponent } from '../../schedule-list/schedule-list.component';
 import { ScheduleDetailComponent } from '../../schedule-detail/schedule-detail.component';
-import { EventListComponent } from '../../event-list/event-list.component'
 import { EventDetailComponent } from '../../event-detail/event-detail.component'
 
 export const AllRoutes: Route[] = [
@@ -21,11 +20,6 @@ export const AllRoutes: Route[] = [
   {
     path: 'schedules/:id',
     component: ScheduleDetailComponent,
-    // canActivate: [AuthGuardService]
-  },
-  {
-    path: 'events',
-    component: EventListComponent,
     // canActivate: [AuthGuardService]
   },
   {

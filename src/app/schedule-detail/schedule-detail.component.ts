@@ -25,35 +25,22 @@ export class ScheduleDetailComponent implements OnInit {
     public router: Router, public activatedRoute: ActivatedRoute) {
     //set the page title
     titleService.setTitle('Edit schedule');
-
-    //get schedule details
-    this.getSchedule();
-
   }
 
   ngOnInit() {
     console.info(this.activatedRoute.params['_value'].id)
     this.activatedRoute.params
       // .switchMap((params: Params) => { console.info('xxx'); console.info(params.id); return Observable.of(); })
-      .subscribe((data) => { console.info('data'); console.info(data); });
+      .subscribe((data) => {
+        //get schedule details
+        this.scheduleService.getScheduleDetails(data.id)
+            .subscribe(
+              (data) => {
+                this._schedule = data;
+                this.titleService.setTitle('Editing ' + data['name']);
+              },
+              (error) => {},
+            );
+      });
   }
-
-  /**
-   * Get the details
-   */
-  getSchedule() {
-    // this.scheduleService.getSchedule(scheduleId).subscribe(
-    //   (data) => {
-    //     if (data) {
-    //       this._schedule = data;
-    //       console.log('GETTING DATA')
-    //       console.log(this._schedule)
-    //     }
-    //   },
-    //   (error) => {
-    //     alert('error')
-    //   }
-    // );
-  }
-
 }

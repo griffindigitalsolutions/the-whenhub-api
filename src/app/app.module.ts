@@ -15,7 +15,6 @@ import { ScheduleService } from './services/schedule/schedule.service';
 
 
 import { AppComponent } from './app.component';
-import { EventListComponent } from './event-list/event-list.component';
 import { EventDetailComponent } from './event-detail/event-detail.component';
 import { HomeComponent } from './home/home.component';
 import { FooterComponent } from './ui-elements/footer/footer.component';
@@ -27,7 +26,6 @@ import { ScheduleDetailComponent } from './schedule-detail/schedule-detail.compo
 @NgModule({
   declarations: [
     AppComponent,
-    EventListComponent,
     EventDetailComponent,
     FooterComponent,
     HeaderComponent,
