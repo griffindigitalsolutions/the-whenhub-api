@@ -11,7 +11,7 @@ export class HomeComponent implements OnInit {
 
   public apiKeyForm: FormGroup;
   constructor(private _configService: ConfigService, public formBuilder: FormBuilder) {
-    //prepare the password reset form
+    //prepare the api form
     this.apiKeyForm = formBuilder.group(
       {
         'apiKey': ['', Validators.required]

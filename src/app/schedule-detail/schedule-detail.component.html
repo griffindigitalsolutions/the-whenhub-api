@@ -1,11 +1,34 @@
-<md-list>
-  <h3 md-subheader>Events for this schedule</h3>
-  <md-list-item *ngFor="let e of _schedule.events">
-    <md-icon md-list-icon>folder</md-icon>
-    <h4 md-line>{{ e.name }}</h4>
-    <p md-line> {{ e.description }} </p>
-    <!--<p md-line> {{ e | json }} </p>-->
-    <p md-line> {{ e.startDate | date }} </p>
-    <p md-line> {{ e.startDate | date }} </p>
-  </md-list-item>
-</md-list>
+<ol class="breadcrumb">
+    <li><a routerLink="">Home</a></li>
+    <li><a routerLink="/schedules">Schedules</a></li>
+    <li class="active">{{ _schedule.name }}</li>
+</ol>
+
+<div *ngIf="!_isEditingEvent">
+    <div *ngIf="_message.message && _message.type == 'success'" class="alert alert-success" role="alert">Data saved!</div>
+    <div *ngIf="_message.message && _message.type == 'error'" class="alert alert-danger" role="alert">There was an error saving data!</div>
+
+    <div class="media" *ngFor="let e of _schedule.events">
+
+        <div class="media-body">
+            <h4 class="media-heading">{{ e.name }}</h4>
+            <p [innerHTML]="e.description"></p>
+            <p> {{ e.when.startDate | date }} </p>
+            <p> {{ e.when.period }} </p>
+            <p> {{ e.when.endDate | date }} </p>
+            <!--<p> {{ e.when | json }} </p>-->
+            <!--<p> {{ e | json }} </p>-->
+        </div>
+        <div class="btn-group" role="group">
+            <button class="btn btn-default" (click)="editEvent(e);">EDIT</button>
+            <button class="btn btn-danger" (click)="deleteEvent(e.id)">
+                <span *ngIf="e.id === _confirmDeletingId">Are you sure?</span>
+                <span *ngIf="e.id !== _confirmDeletingId">DELETE</span>
+            </button>
+        </div>
+        <hr />
+    </div>
+</div>
+<div *ngIf="_isEditingEvent">
+    <event-detail [event]="_eventData" (editing)="stopEditing($event)"></event-detail>
+</div>

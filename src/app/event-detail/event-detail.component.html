@@ -1,3 +1,42 @@
-<p>
-  event-detail works!
-</p>
+{{ _event | json }}
+<p>{{ _event.name }} </p>
+<p>{{ _event.when.startDate | date }} </p>
+<p>{{ _event.when.endDate | date }} </p>
+<p>a {{ _event.createdAt | date }} </p>
+
+<div *ngIf="_message.message && _message.type == 'success'" class="alert alert-success" role="alert">Data saved!</div>
+<div *ngIf="_message.message && _message.type == 'error'" class="alert alert-danger" role="alert">There was an error saving data!</div>
+<form class="example-form col-md-3" [formGroup]="_eventForm">
+  <div class="input-group">
+    <span class="input-group-addon" id="basic-addon1">Name</span>
+    <input formControlName="name" [(ngModel)]="_event.name" [formControl]="_eventForm.controls['name']" type="text" name="name" class="form-control" placeholder="Event name"
+    />
+  </div>
+
+  <!--<div formGroupName="location" class="form-group">
+    <div class="input-group">
+      <span class="input-group-addon" id="basic-addon1">Location</span>
+      <input formControlName="name" type="text" name="name"
+        class="form-control" placeholder="Location name" />
+    </div>
+  </div>-->
+
+  <div formGroupName="when" class="form-group">
+    <div class="input-group">
+      <span class="input-group-addon" id="basic-addon1">Event</span>
+      <input [(ngModel)]="_event.when.period" formControlName="period" type="text" name="period" class="form-control" placeholder="Period" />
+      <input [(ngModel)]="_event.when.startDate" formControlName="startDate" type="text" name="startDate" class="form-control" placeholder="Start Date" />
+      <input [(ngModel)]="_event.when.startTimezone" formControlName="startTimezone" type="text" name="name" class="form-control" placeholder="Start Timezone" />
+      <input [(ngModel)]="_event.when.endDate" formControlName="endDate" type="text" name="endDate" class="form-control" placeholder="End Date" />
+      <input [(ngModel)]="_event.when.endTimezone" formControlName="endTimezone" type="text" name="endTimezone" class="form-control" placeholder="End Timezone" />
+        <!--[formControl]="_eventForm.controls['location']['nasme']" -->
+
+
+    </div>
+  </div>
+
+  <div class="btn-group" role="group">
+    <button class="btn btn-default" (click)="save(); $event.preventDefault()">SAVE</button>
+    <button class="btn btn-default" (click)="stopEditing()">GO BACK</button>
+  </div>
+</form>

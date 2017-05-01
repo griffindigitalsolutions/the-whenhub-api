@@ -91,22 +91,13 @@ export class ApiService {
    * @return Observable<Response>
    */
   delete(data): Observable<Response> {
-    if (!data.url || !data.headers) {
+    if (!data.url) {
       return Observable.empty();
     }
-    // headers are set from those making the request [for now]
-    if (data.headers) {
-      this._headers = new Headers({ 'Content-Type': 'application/json' });
-      for (var key in data.headers) {
-        this._headers.append(key, data.headers[key]);
-      }
-    }
-
     //prepare the RequestOptions
     let requestOptions = new RequestOptions({ headers: this._headers });
 
-    return this._http.get(data.url, requestOptions).map(res => res.json());
-
+    return this._http.delete(data.url, requestOptions).map(res => res.json());
   }
 
 
@@ -116,21 +107,14 @@ export class ApiService {
    * @return Observable<Response>
    */
   patch(data): Observable<Response> {
-    if (!data.url || !data.headers) {
+    if (!data.url || !data.content) {
       return Observable.empty();
-    }
-    // headers are set from those making the request [for now]
-    if (data.headers) {
-      this._headers = new Headers({ 'Content-Type': 'application/json' });
-      for (var key in data.headers) {
-        this._headers.append(key, data.headers[key]);
-      }
     }
 
     //prepare the RequestOptions
     let requestOptions = new RequestOptions({ headers: this._headers });
 
-    return this._http.patch(data.url, requestOptions).map(res => res.json());
+    return this._http.put(data.url, data.content, requestOptions).map(res => res.json());
 
   }
 
