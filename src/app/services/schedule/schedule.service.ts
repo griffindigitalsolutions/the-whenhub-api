@@ -20,14 +20,38 @@ export class ScheduleService {
   }
   saveEvent(event) {
     return this.apiService.patch({
-      ///   /https://api.whenhub.com/api/schedules/scheduleId/events/eventId
       url: 'https://api.whenhub.com/api/schedules/' + event.scheduleId + '/events/' + event.id + '?access_token=' + this.configService.whenHubApiKey,
       content: event
+    });
+  }
+  saveNewEvent(event) {
+    return this.apiService.post({
+      url: 'https://api.whenhub.com/api/schedules/' + event.scheduleId + '/events' + '?access_token=' + this.configService.whenHubApiKey,
+      body: event
     });
   }
   deleteEvent(eventId) {
     return this.apiService.delete({
       url: 'https://api.whenhub.com/api/events/' + eventId + '?access_token=' + this.configService.whenHubApiKey
+    });
+  }
+  deleteSchedule(scheduleId) {
+    return this.apiService.delete({
+      url: 'https://api.whenhub.com/api/schedules/' + scheduleId + '?access_token=' + this.configService.whenHubApiKey
+    });
+  }
+
+  saveSchedule(schedule) {
+    return this.apiService.patch({
+      url: 'https://api.whenhub.com/api/schedules?id=' + schedule.id + '&access_token=' + this.configService.whenHubApiKey,
+      content: schedule
+    });
+  }
+
+  saveNewSchedule(schedule) {
+    return this.apiService.post({
+      url: 'https://api.whenhub.com/api/users/me/schedules' + '?access_token=' + this.configService.whenHubApiKey,
+      body: schedule
     });
   }
 

@@ -22,6 +22,7 @@ import { HeaderComponent } from './ui-elements/header/header.component';
 import 'hammerjs';
 import { ScheduleListComponent } from './schedule-list/schedule-list.component';
 import { ScheduleDetailComponent } from './schedule-detail/schedule-detail.component';
+import { EditScheduleComponent } from './edit-schedule/edit-schedule.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { ScheduleDetailComponent } from './schedule-detail/schedule-detail.compo
     HeaderComponent,
     HomeComponent,
     ScheduleListComponent,
-    ScheduleDetailComponent
+    ScheduleDetailComponent,
+    EditScheduleComponent
   ],
   imports: [
     BrowserModule,

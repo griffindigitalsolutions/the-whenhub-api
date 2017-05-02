@@ -114,7 +114,7 @@ export class ApiService {
     //prepare the RequestOptions
     let requestOptions = new RequestOptions({ headers: this._headers });
 
-    return this._http.put(data.url, data.content, requestOptions).map(res => res.json());
+    return this._http.patch(data.url, data.content, requestOptions).map(res => res.json());
 
   }
 

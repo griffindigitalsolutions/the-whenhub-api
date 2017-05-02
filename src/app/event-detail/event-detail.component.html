@@ -1,8 +1,8 @@
 {{ _event | json }}
 <p>{{ _event.name }} </p>
-<p>{{ _event.when.startDate | date }} </p>
-<p>{{ _event.when.endDate | date }} </p>
-<p>a {{ _event.createdAt | date }} </p>
+<p>{{ _event.when.startDate  }} </p>
+<p>{{ _event.when.endDate  }} </p>
+<p>a {{ _event.createdAt }} </p>
 
 <div *ngIf="_message.message && _message.type == 'success'" class="alert alert-success" role="alert">Data saved!</div>
 <div *ngIf="_message.message && _message.type == 'error'" class="alert alert-danger" role="alert">There was an error saving data!</div>

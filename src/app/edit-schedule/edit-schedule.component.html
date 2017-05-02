@@ -1,0 +1,17 @@
+
+<div *ngIf="_message.message && _message.type == 'success'" class="alert alert-success" role="alert">Data saved!</div>
+<div *ngIf="_message.message && _message.type == 'error'" class="alert alert-danger" role="alert">There was an error saving data!</div>
+<form class="example-form col-md-3" [formGroup]="_scheduleForm">
+  <div class="input-group">
+    <span class="input-group-addon" id="basic-addon1">Name</span>
+    <input formControlName="name" [(ngModel)]="_schedule.name" [formControl]="_scheduleForm.controls['name']" type="text" name="name" class="form-control" placeholder="Event name"
+    />
+  </div>
+
+
+  <div class="btn-group" role="group">
+    <button class="btn btn-default" (click)="save(); $event.preventDefault()">SAVE</button>
+    <button class="btn btn-default" routerLink="/schedules">GO BACK</button>
+  </div>
+</form>
+{{ _schedule | json }}

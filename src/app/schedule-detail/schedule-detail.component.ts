@@ -32,7 +32,6 @@ export class ScheduleDetailComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.info(this.activatedRoute.params['_value'].id)
     this.activatedRoute.params
       // .switchMap((params: Params) => { console.info('xxx'); console.info(params.id); return Observable.of(); })
       .subscribe((data) => {
@@ -58,8 +57,12 @@ export class ScheduleDetailComponent implements OnInit {
     }
   }
 
-  stopEditing(event) {
+  stopEditingEvent(event) {
     this._isEditingEvent = false;
+  }
+  handleEventChange() {
+    //details may have changed
+    this.getScheduleDetails(this._schedule['id']);
   }
 
   deleteEvent(eventId) {
@@ -75,6 +78,8 @@ export class ScheduleDetailComponent implements OnInit {
         (data) => {
           this._message.message = 'Event deleted!';
           this._message.type = 'success';
+          this._eventData = {};
+          this._confirmDeletingId = '';
 
           //update event list
           this.getScheduleDetails(this._schedule['id']);
@@ -85,8 +90,32 @@ export class ScheduleDetailComponent implements OnInit {
         }
       );
     }
-
-
-
   }
+
+  /**
+   * Set the page flag to start editing (new) event
+   */
+  addNewEventForm() {
+    this._eventData =
+      {
+        "when": {
+          "period": "minute",
+          "startDate": "2017-05-02T21:00:00+01:00",
+          "endDate": "2017-05-02T22:00:00+01:00",
+          "startTimezone": "Europe/London",
+          "endTimezone": "Europe/London"
+        },
+        "customFieldData": {
+          "030ae017-4c19-46e8-bdbe-7ba03117be4d": {},
+          "1c538d7f-1244-4eda-a746-d2097b2ebfc5": {}
+        },
+        "name": "someName",
+        "media": [],
+        "scheduleId": ""
+      }
+      this._eventData['scheduleId'] = this._schedule['id'];
+
+    this._isEditingEvent = true;
+  }
+
 }

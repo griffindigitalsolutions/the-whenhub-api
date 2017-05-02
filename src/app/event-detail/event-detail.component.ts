@@ -15,8 +15,9 @@ export class EventDetailComponent implements OnInit {
 
   private _event: Object = {};
   @Output() editing: EventEmitter<any> = new EventEmitter();
+  @Output() eventChanged: EventEmitter<any> = new EventEmitter();
   @Input()
-  set event(event: Object) { //this monitors the graphData and triggers this function on change
+  set event(event: Object) {
     if (event) { //this is undefined to start with
       this._event = event;
     }
@@ -25,7 +26,11 @@ export class EventDetailComponent implements OnInit {
   private _eventForm: FormGroup;
   private _message: any = { message: '', type: '' }
 
-  constructor(public formBuilder: FormBuilder, public configService: ConfigService, public titleService: Title, public scheduleService: ScheduleService) {
+  constructor(public formBuilder: FormBuilder,
+    public configService: ConfigService,
+    public titleService: Title,
+    public scheduleService: ScheduleService
+  ) {
 
     //prepare the password reset form
     this._eventForm = formBuilder.group(
@@ -54,18 +59,33 @@ export class EventDetailComponent implements OnInit {
     //reset error / success messages
     this._message.message = false;
     this._message.type = false;
-    
-    this.scheduleService.saveEvent(this._event).subscribe(
-      (data) => {
-        this._message.message = 'Data saved!';
-        this._message.type = 'success';
-      },
-      (error) => {
-        this._message.message = 'Error saving data!';
-        this._message.type = 'error';
-      }
 
-    );
+    //events can be new or updated
+    if (!this._event['id']) {
+      this.scheduleService.saveNewEvent(this._event).subscribe(
+        (data) => {
+          this._message.message = 'Data saved!';
+          this._message.type = 'success';
+        },
+        (error) => {
+          this._message.message = 'Error saving data!';
+          this._message.type = 'error';
+        }
+      );
+    } else {
+      this.scheduleService.saveEvent(this._event).subscribe(
+        (data) => {
+          this._message.message = 'Data saved!';
+          this._message.type = 'success';
+        },
+        (error) => {
+          this._message.message = 'Error saving data!';
+          this._message.type = 'error';
+        }
+      );
+    }
+
+    this.eventChanged.emit();
   }
 
   /**
@@ -73,5 +93,6 @@ export class EventDetailComponent implements OnInit {
    */
   stopEditing() {
     this.editing.emit(false);
+    this.eventChanged.emit();
   }
 }

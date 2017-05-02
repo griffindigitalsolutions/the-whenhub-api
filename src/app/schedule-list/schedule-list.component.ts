@@ -11,7 +11,9 @@ import { Title } from '@angular/platform-browser';
 })
 export class ScheduleListComponent implements OnInit {
 
-  public schedules: any  = []; //array of objects : todo: implement model
+  public schedules: any = []; //array of objects : todo: implement model
+  private _confirmDeletingId: string = '';
+  private _message: any = { message: '', type: '' }
 
   constructor(public apiService: ApiService,
     public configService: ConfigService,
@@ -43,6 +45,36 @@ export class ScheduleListComponent implements OnInit {
         alert('error')
       }
     );
+  }
+
+  /**
+   * Delete schedule. Require confirmation first
+   * @param scheduleId
+   */
+  deleteSchedule(scheduleId) {
+    //reset error / success messages
+    this._message.message = false;
+    this._message.type = false;
+
+    if (scheduleId !== this._confirmDeletingId) {
+      this._confirmDeletingId = scheduleId;
+      return;
+    } else if (scheduleId === this._confirmDeletingId) {
+      this.scheduleService.deleteSchedule(scheduleId).subscribe(
+        (data) => {
+          this._message.message = 'Schedule deleted!';
+          this._message.type = 'success';
+          this._confirmDeletingId = '';
+
+          //and get the schedules again
+          this.getSchedules();
+        },
+        (error) => {
+          this._message.message = 'Error deleting schedule!';
+          this._message.type = 'error';
+        }
+      );
+    }
   }
 
 }
