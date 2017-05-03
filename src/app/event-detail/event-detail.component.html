@@ -1,9 +1,3 @@
-{{ _event | json }}
-<p>{{ _event.name }} </p>
-<p>{{ _event.when.startDate  }} </p>
-<p>{{ _event.when.endDate  }} </p>
-<p>a {{ _event.createdAt }} </p>
-
 <div *ngIf="_message.message && _message.type == 'success'" class="alert alert-success" role="alert">Data saved!</div>
 <div *ngIf="_message.message && _message.type == 'error'" class="alert alert-danger" role="alert">There was an error saving data!</div>
 <form class="example-form col-md-3" [formGroup]="_eventForm">
@@ -16,27 +10,31 @@
   <!--<div formGroupName="location" class="form-group">
     <div class="input-group">
       <span class="input-group-addon" id="basic-addon1">Location</span>
-      <input formControlName="name" type="text" name="name"
+      <input formControlName="_event.location.name" [(ngModel)]="_event.location.name" type="text" name="location.name"
         class="form-control" placeholder="Location name" />
     </div>
   </div>-->
 
   <div formGroupName="when" class="form-group">
     <div class="input-group">
-      <span class="input-group-addon" id="basic-addon1">Event</span>
+
+
+
       <input [(ngModel)]="_event.when.period" formControlName="period" type="text" name="period" class="form-control" placeholder="Period" />
-      <input [(ngModel)]="_event.when.startDate" formControlName="startDate" type="text" name="startDate" class="form-control" placeholder="Start Date" />
+      <p-calendar [(ngModel)]="_event.when.startDate" formControlName="startDate" [inline]="false" dateFormat="dd/mm/yy" [minDate]="minDateValue" showTime="showTime" hourFormat="24" [stepMinute]="5" inputStyleClass="form-control"></p-calendar>
+      <p-calendar [(ngModel)]="_event.when.endDate" formControlName="endDate" [inline]="false" dateFormat="dd/mm/yy" [minDate]="minDateValue" showTime="showTime" hourFormat="24" [stepMinute]="5" inputStyleClass="form-control"></p-calendar>
       <input [(ngModel)]="_event.when.startTimezone" formControlName="startTimezone" type="text" name="name" class="form-control" placeholder="Start Timezone" />
-      <input [(ngModel)]="_event.when.endDate" formControlName="endDate" type="text" name="endDate" class="form-control" placeholder="End Date" />
       <input [(ngModel)]="_event.when.endTimezone" formControlName="endTimezone" type="text" name="endTimezone" class="form-control" placeholder="End Timezone" />
-        <!--[formControl]="_eventForm.controls['location']['nasme']" -->
 
-
+      
     </div>
   </div>
 
+  <!--<p-calendar [(ngModel)]="_startDate" formControlName="_startDate" [inline]="false" dateFormat="dd/mm/yy" [minDate]="minDateValue" showTime="showTime" hourFormat="24" [stepMinute]="5"></p-calendar>-->
   <div class="btn-group" role="group">
     <button class="btn btn-default" (click)="save(); $event.preventDefault()">SAVE</button>
     <button class="btn btn-default" (click)="stopEditing()">GO BACK</button>
   </div>
 </form>
+
+<!--{{ _event | json }}-->

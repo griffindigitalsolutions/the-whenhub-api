@@ -5,6 +5,7 @@ import { ApiService } from '../services/api/api.service';
 import { Title } from '@angular/platform-browser';
 import { FormBuilder, FormGroup, FormControl, Validators, AbstractControl } from '@angular/forms';
 import { Observable } from 'rxjs/Observable';
+import { ChangeDetectorRef } from '@angular/core';
 
 @Component({
   selector: 'event-detail',
@@ -19,6 +20,15 @@ export class EventDetailComponent implements OnInit {
   @Input()
   set event(event: Object) {
     if (event) { //this is undefined to start with
+      //convert the start and end dates to actual date objects. 
+      if (event && event['when']) { //check they are set first
+        if (event['when'].startDate) {
+          event['when'].startDate = new Date(event['when'].startDate);
+        }
+        if (event['when'].endDate) {
+          event['when'].endDate = new Date(event['when'].endDate);
+        }
+      }
       this._event = event;
     }
   }
@@ -26,33 +36,41 @@ export class EventDetailComponent implements OnInit {
   private _eventForm: FormGroup;
   private _message: any = { message: '', type: '' }
 
+  private _startDate: any = new Date();
+  private _endDate: any = new Date();
+  private _minDate: any = new Date();
+
   constructor(public formBuilder: FormBuilder,
     public configService: ConfigService,
     public titleService: Title,
-    public scheduleService: ScheduleService
+    public scheduleService: ScheduleService,
+    private change: ChangeDetectorRef
   ) {
 
     //prepare the password reset form
-    this._eventForm = formBuilder.group(
+    this._eventForm = this.formBuilder.group(
       {
         'name': ['', Validators.required],
+
         // 'location': formBuilder.group({
         //   'name': ['', Validators.required]
         // }),
 
-        'when': formBuilder.group({
+        'when': this.formBuilder.group({
           'period': ['', Validators.required],
           'startDate': ['', Validators.required],
           'startTimezone': ['', Validators.required],
           'endDate': ['', Validators.required],
           'endTimezone': ['', Validators.required]
         })
-
       },
     );
   }
 
   ngOnInit() {
+    // code that inits everything, prevents error 
+    this.change.markForCheck();
+
   }
 
   save() {

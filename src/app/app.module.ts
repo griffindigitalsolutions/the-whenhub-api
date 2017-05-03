@@ -23,6 +23,7 @@ import 'hammerjs';
 import { ScheduleListComponent } from './schedule-list/schedule-list.component';
 import { ScheduleDetailComponent } from './schedule-detail/schedule-detail.component';
 import { EditScheduleComponent } from './edit-schedule/edit-schedule.component';
+import { CalendarModule } from 'primeng/primeng';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { EditScheduleComponent } from './edit-schedule/edit-schedule.component';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    CalendarModule,
     FormsModule,
     HttpModule,
     MaterialModule.forRoot(),
