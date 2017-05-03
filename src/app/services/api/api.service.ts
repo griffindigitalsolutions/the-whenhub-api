@@ -117,6 +117,22 @@ export class ApiService {
     return this._http.patch(data.url, data.content, requestOptions).map(res => res.json());
 
   }
+  /**
+   * Make PUT request
+   * @argument data { url, headers }
+   * @return Observable<Response>
+   */
+  put(data): Observable<Response> {
+    if (!data.url || !data.content) {
+      return Observable.empty();
+    }
+
+    //prepare the RequestOptions
+    let requestOptions = new RequestOptions({ headers: this._headers });
+
+    return this._http.put(data.url, data.content, requestOptions).map(res => res.json());
+
+  }
 
 
 
