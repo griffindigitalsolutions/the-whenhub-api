@@ -100,16 +100,14 @@ export class ScheduleDetailComponent implements OnInit {
       {
         "when": {
           "period": "minute",
-          "startDate": "2017-05-02T21:00:00+01:00",
-          "endDate": "2017-05-02T22:00:00+01:00",
-          "startTimezone": "Europe/London",
-          "endTimezone": "Europe/London"
+          "startDate": new Date(),
+          "endDate": new Date().setHours(new Date().getHours()+1),
+          "startTimezone": "US/Pacific",
+          "endTimezone": "US/Pacific"
         },
         "customFieldData": {
-          "030ae017-4c19-46e8-bdbe-7ba03117be4d": {},
-          "1c538d7f-1244-4eda-a746-d2097b2ebfc5": {}
         },
-        "name": "someName",
+        "name": "",
         "media": [],
         "scheduleId": ""
       }

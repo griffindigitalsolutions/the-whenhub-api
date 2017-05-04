@@ -1,13 +1,18 @@
-<div *ngIf="_message.message && _message.type == 'success'" class="alert alert-success" role="alert">Data saved!</div>
-<div *ngIf="_message.message && _message.type == 'error'" class="alert alert-danger" role="alert">There was an error saving data!</div>
-<form class="example-form col-md-3" [formGroup]="_eventForm">
-  <div class="input-group">
-    <span class="input-group-addon" id="basic-addon1">Name</span>
-    <input formControlName="name" [(ngModel)]="_event.name" [formControl]="_eventForm.controls['name']" type="text" name="name" class="form-control" placeholder="Event name"
-    />
-  </div>
+<div class="col-md-12">
+  <h2>Edit event</h2>
 
-  <!--<div formGroupName="location" class="form-group">
+  <div *ngIf="_message.message && _message.type == 'success'" class="alert alert-success" role="alert">Data saved!</div>
+  <div *ngIf="_message.message && _message.type == 'error'" class="alert alert-danger" role="alert">There was an error saving data!</div>
+  <form class="example-form" [formGroup]="_eventForm">
+    <p>You can edit your event here. This event is part of a schedule.</p>
+    <hr />
+    <div class="input-group">
+      <label>Name</label>
+      <input formControlName="name" [(ngModel)]="_event.name" [formControl]="_eventForm.controls['name']" type="text" name="name"
+        class="form-control" placeholder="Event name" />
+    </div>
+
+    <!--<div formGroupName="location" class="form-group">
     <div class="input-group">
       <span class="input-group-addon" id="basic-addon1">Location</span>
       <input formControlName="_event.location.name" [(ngModel)]="_event.location.name" type="text" name="location.name"
@@ -15,26 +20,35 @@
     </div>
   </div>-->
 
-  <div formGroupName="when" class="form-group">
-    <div class="input-group">
+    <div formGroupName="when" class="form-group">
+      <!--<label>Period</label>
+      <small>How do you want to save this event as? A day event, a month long event etc.</small>
+      <input [(ngModel)]="_event.when.period" formControlName="period" type="text" name="period" class="form-control" placeholder="Period" />-->
+
+      <label for="startDate">Start date and time of your event</label>
+      <br/>
+      <p-calendar [(ngModel)]="_event.when.startDate" formControlName="startDate" [inline]="false" dateFormat="dd/mm/yy" [minDate]="minDateValue"
+        showTime="showTime" hourFormat="24" [stepMinute]="5" inputStyleClass="form-control" name="startDate"></p-calendar>
+      <br />
+
+      <label for="startDate">End date and time of your event</label>
+      <br/>
+      <p-calendar [(ngModel)]="_event.when.endDate" formControlName="endDate" [inline]="false" dateFormat="dd/mm/yy" [minDate]="minDateValue"
+        showTime="showTime" hourFormat="24" [stepMinute]="5" inputStyleClass="form-control" name="endDate"></p-calendar>
+      <input [(ngModel)]="_event.when.startTimezone" formControlName="startTimezone" type="text" name="name" class="form-control"
+        placeholder="Start Timezone" readonly />
+      <input [(ngModel)]="_event.when.endTimezone" formControlName="endTimezone" type="text" name="endTimezone" class="form-control"
+        placeholder="End Timezone" readonly />
 
 
-
-      <input [(ngModel)]="_event.when.period" formControlName="period" type="text" name="period" class="form-control" placeholder="Period" />
-      <p-calendar [(ngModel)]="_event.when.startDate" formControlName="startDate" [inline]="false" dateFormat="dd/mm/yy" [minDate]="minDateValue" showTime="showTime" hourFormat="24" [stepMinute]="5" inputStyleClass="form-control"></p-calendar>
-      <p-calendar [(ngModel)]="_event.when.endDate" formControlName="endDate" [inline]="false" dateFormat="dd/mm/yy" [minDate]="minDateValue" showTime="showTime" hourFormat="24" [stepMinute]="5" inputStyleClass="form-control"></p-calendar>
-      <input [(ngModel)]="_event.when.startTimezone" formControlName="startTimezone" type="text" name="name" class="form-control" placeholder="Start Timezone" />
-      <input [(ngModel)]="_event.when.endTimezone" formControlName="endTimezone" type="text" name="endTimezone" class="form-control" placeholder="End Timezone" />
-
-      
     </div>
-  </div>
 
-  <!--<p-calendar [(ngModel)]="_startDate" formControlName="_startDate" [inline]="false" dateFormat="dd/mm/yy" [minDate]="minDateValue" showTime="showTime" hourFormat="24" [stepMinute]="5"></p-calendar>-->
-  <div class="btn-group" role="group">
-    <button class="btn btn-default" (click)="save(); $event.preventDefault()">SAVE</button>
-    <button class="btn btn-default" (click)="stopEditing()">GO BACK</button>
-  </div>
-</form>
+    <!--<p-calendar [(ngModel)]="_startDate" formControlName="_startDate" [inline]="false" dateFormat="dd/mm/yy" [minDate]="minDateValue" showTime="showTime" hourFormat="24" [stepMinute]="5"></p-calendar>-->
+    <div class="btn-group" role="group">
+      <button class="btn btn-default" (click)="save(); $event.preventDefault()" [disabled]="!_eventForm.controls['name'].valid">SAVE</button>
+      <button class="btn btn-default" (click)="stopEditing()">GO BACK</button>
+    </div>
+  </form>
 
-<!--{{ _event | json }}-->
+  <!--{{ _event | json }}-->
+</div>

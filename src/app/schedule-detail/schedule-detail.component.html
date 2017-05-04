@@ -1,39 +1,45 @@
-<ol class="breadcrumb">
-    <li><a routerLink="">Home</a></li>
-    <li><a routerLink="/schedules">Schedules</a></li>
-    <li class="active">{{ _schedule.name }}</li>
-</ol>
+<div class="col-md-12">
+    <h2>Schedule</h2>
+    <p>These are the events for this schedule. You can add, edit or delete.</p>
+    <hr />
 
-<div *ngIf="!_isEditingEvent">
-    <div *ngIf="_message.message && _message.type == 'success'" class="alert alert-success" role="alert">{{ _message.message }}</div>
-    <div *ngIf="_message.message && _message.type == 'error'" class="alert alert-danger" role="alert">There was an error saving data!</div>
+    <ol class="breadcrumb">
+        <li><a routerLink="">Home</a></li>
+        <li><a routerLink="/schedules">Schedules</a></li>
+        <li class="active">{{ _schedule.name }}</li>
+    </ol>
 
-    <div class="media" *ngFor="let e of _schedule.events">
+    <div *ngIf="!_isEditingEvent">
+        <div *ngIf="_message.message && _message.type == 'success'" class="alert alert-success" role="alert">{{ _message.message }}</div>
+        <div *ngIf="_message.message && _message.type == 'error'" class="alert alert-danger" role="alert">There was an error saving data!</div>
 
-        <div class="media-body">
-            <h4 class="media-heading">{{ e.name }}</h4>
-            <p [innerHTML]="e.description"></p>
-            <p> {{ e.when.startDate | date }} </p>
-            <p> {{ e.when.period }} </p>
-            <p> {{ e.when.endDate | date }} </p>
-        </div>
-        <div class="btn-group" role="group">
-            <button class="btn btn-default" (click)="editEvent(e);">Details</button>
-            <button class="btn btn-danger" (click)="deleteEvent(e.id)">
+        <div class="media" *ngFor="let e of _schedule.events">
+
+            <div class="media-body">
+                <h4 class="media-heading">{{ e.name }}</h4>
+                <p [innerHTML]="e.description"></p>
+                <p> {{ e.when.startDate | date }} </p>
+                <p> {{ e.when.period }} </p>
+                <p> {{ e.when.endDate | date }} </p>
+            </div>
+            <div class="btn-group" role="group">
+                <button class="btn btn-default" (click)="editEvent(e);">Details</button>
+                <button class="btn btn-danger" (click)="deleteEvent(e.id)">
                 <span *ngIf="e.id === _confirmDeletingId">Are you sure?</span>
                 <span *ngIf="e.id !== _confirmDeletingId">Delete</span>
             </button>
+            </div>
+            <hr />
         </div>
-        <hr />
+        <div *ngIf="!_schedule.events || _schedule.events.length == 0">
+            This schedule has no events. Would you like to add one?
+            <br />
+        </div>
     </div>
-    <div *ngIf="!_schedule.events || _schedule.events.length == 0">
-        This schedule has no events. Would you like to add one?
-        <br />
+    <div *ngIf="_isEditingEvent">
+        <event-detail [event]="_eventData" (editing)="stopEditingEvent($event)" (eventChanged)="handleEventChange()"></event-detail>
     </div>
-</div>
-<div *ngIf="_isEditingEvent">
-    <event-detail [event]="_eventData" (editing)="stopEditingEvent($event)" (eventChanged)="handleEventChange()"></event-detail>
-</div>
-<div *ngIf="!_isEditingEvent">
-    <button class="btn btn-default" (click)="addNewEventForm();">Add event</button>
+    <div *ngIf="!_isEditingEvent">
+        <button class="btn btn-default" (click)="addNewEventForm();">Add event</button>
+    </div>
 </div>
