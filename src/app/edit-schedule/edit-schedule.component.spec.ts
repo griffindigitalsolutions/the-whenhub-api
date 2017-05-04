@@ -1,7 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { EditScheduleComponent } from './edit-schedule.component';
-import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms'
 import { ConfigService } from "app/services/config/config.service";
 import { ScheduleService } from "app/services/schedule/schedule.service";
@@ -19,7 +18,6 @@ describe('EditScheduleComponent', () => {
         EditScheduleComponent 
       ],
       imports: [
-        FormsModule, 
         ReactiveFormsModule,
         RouterTestingModule.withRoutes(
           [{ path: '', component: EditScheduleComponent }]),

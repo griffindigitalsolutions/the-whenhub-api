@@ -20,7 +20,7 @@
     </textarea>
     </div>
 
-    <div formGroupName="when" class="form-group">
+    <div formGroupName="when" class="form-group" *ngIf="_event && _event.when">
       <!--<label>Period</label>
       <small>How do you want to save this event as? A day event, a month long event etc.</small>
       <input [(ngModel)]="_event.when.period" formControlName="period" type="text" name="period" class="form-control" placeholder="Period" />-->

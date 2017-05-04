@@ -9,24 +9,25 @@
   <div *ngIf="_message.message && _message.type == 'success'" class="alert alert-success" role="alert">{{ _message.message }}</div>
   <div *ngIf="_message.message && _message.type == 'error'" class="alert alert-danger" role="alert">There was an error saving data!</div>
 
-  <div class="panel panel-default" *ngFor="let s of schedules">
-    <div class="panel-heading">
-      <h3 class="panel-title">{{ s.name }}
+  <div *ngIf="schedules">
+    <div class="panel panel-default" *ngFor="let s of schedules">
+      <div class="panel-heading">
+        <h3 class="panel-title">{{ s.name }}
 
-      </h3>
-    </div>
-    <div class="panel-body">
-      <!--<h4>{{ s | json }}</h4>-->
-      <p> {{ s.description | words : 15 : '...' }} </p>
-      <!--<p> {{ s.scope }} </p>-->
-      <!--<p> {{ s.tags }} </p>-->
-      <div class="btn-group" role="group">
-        <button class="btn btn-default" routerLink="{{s.id}}">View Events</button>
-        <button class="btn btn-default" routerLink="/schedules/{{s.id}}/edit">Edit</button>
-        <button class="btn btn-danger" (click)="deleteSchedule(s.id)">
+        </h3>
+      </div>
+      <div class="panel-body">
+        <p> {{ s.description | words : 15 : '...' }} </p>
+        <!--<p> {{ s.scope }} </p>-->
+        <!--<p> {{ s.tags }} </p>-->
+        <div class="btn-group" role="group">
+          <button class="btn btn-default" routerLink="{{s.id}}">View Events</button>
+          <button class="btn btn-default" routerLink="/schedules/{{s.id}}/edit">Edit</button>
+          <button class="btn btn-danger" (click)="deleteSchedule(s.id)">
           <span *ngIf="s.id === _confirmDeletingId">Are you sure?</span>
           <span *ngIf="s.id !== _confirmDeletingId">Delete</span>
       </button>
+        </div>
       </div>
     </div>
   </div>

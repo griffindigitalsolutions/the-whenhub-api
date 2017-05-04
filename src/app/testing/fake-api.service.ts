@@ -8,19 +8,19 @@ export class FakeApiService {
     }
 
     post() {
-        return Observable.of({});
+        return Observable.empty();
     }
     get() {
-        return Observable.of({});
+        return Observable.empty();
     }
     put() {
-        return Observable.of({});
+        return Observable.empty();
     }
     patch() {
-        return Observable.of({});
+        return Observable.empty();
     }
     delete() {
-        return Observable.of({});
+        return Observable.empty();
     }
 
 
