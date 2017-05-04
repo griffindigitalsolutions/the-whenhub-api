@@ -1,4 +1,4 @@
-<div class="col-md-12">
+<div class="col-md-4">
   <h2>Schedules</h2>
   <p>These are your schedules. You can add or delete them from here. You can also edit them and view and edit connected events.</p>
   <hr />
@@ -13,7 +13,7 @@
     Data saved!</div>
   <div *ngIf="_message.message && _message.type == 'error'" class="alert alert-danger" role="alert">There was an error saving data!</div>
 
-  <form class="example-form col-md-3" [formGroup]="_scheduleForm">
+  <form class="example-form" [formGroup]="_scheduleForm">
     <p>You can edit or add a new schedule here.</p>
     <label>Name</label>
     <input formControlName="name" [(ngModel)]="_schedule.name" [formControl]="_scheduleForm.controls['name']" type="text" name="name"

@@ -51,6 +51,7 @@ export class EventDetailComponent implements OnInit {
     this._eventForm = this.formBuilder.group(
       {
         'name': ['', Validators.required],
+        'description': ['', Validators.required],
 
         // 'location': formBuilder.group({
         //   'name': ['', Validators.required]

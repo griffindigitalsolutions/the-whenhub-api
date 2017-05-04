@@ -24,6 +24,7 @@ import { ScheduleListComponent } from './schedule-list/schedule-list.component';
 import { ScheduleDetailComponent } from './schedule-detail/schedule-detail.component';
 import { EditScheduleComponent } from './edit-schedule/edit-schedule.component';
 import { CalendarModule } from 'primeng/primeng';
+import { TruncateModule } from 'ng2-truncate';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { CalendarModule } from 'primeng/primeng';
     MdInputModule,
     // MaterialDesignModule
     ReactiveFormsModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    TruncateModule
   ],
   providers: [ // creators of services that this module contributes to the global collection of services; they become accessible in all parts of the app.
     ApiService,

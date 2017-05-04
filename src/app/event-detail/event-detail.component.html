@@ -11,14 +11,14 @@
       <input formControlName="name" [(ngModel)]="_event.name" [formControl]="_eventForm.controls['name']" type="text" name="name"
         class="form-control" placeholder="Event name" />
     </div>
-
-    <!--<div formGroupName="location" class="form-group">
     <div class="input-group">
-      <span class="input-group-addon" id="basic-addon1">Location</span>
-      <input formControlName="_event.location.name" [(ngModel)]="_event.location.name" type="text" name="location.name"
-        class="form-control" placeholder="Location name" />
+      <label>Description</label>
+          <label>Description</label>
+    <textarea formControlName="description" [(ngModel)]="_event.description" [formControl]="_eventForm.controls['description']"
+      name="description" class="form-control" placeholder="Event description" cols="50" rows="10">
+      {{ _event.description }}
+    </textarea>
     </div>
-  </div>-->
 
     <div formGroupName="when" class="form-group">
       <!--<label>Period</label>
@@ -31,14 +31,14 @@
         showTime="showTime" hourFormat="24" [stepMinute]="5" inputStyleClass="form-control" name="startDate"></p-calendar>
       <br />
 
-      <label for="startDate">End date and time of your event</label>
+      <label for="startDate">End date and time of your event (you may leave blank)</label>
       <br/>
       <p-calendar [(ngModel)]="_event.when.endDate" formControlName="endDate" [inline]="false" dateFormat="dd/mm/yy" [minDate]="minDateValue"
         showTime="showTime" hourFormat="24" [stepMinute]="5" inputStyleClass="form-control" name="endDate"></p-calendar>
-      <input [(ngModel)]="_event.when.startTimezone" formControlName="startTimezone" type="text" name="name" class="form-control"
+      <!--<input [(ngModel)]="_event.when.startTimezone" formControlName="startTimezone" type="text" name="name" class="form-control"
         placeholder="Start Timezone" readonly />
       <input [(ngModel)]="_event.when.endTimezone" formControlName="endTimezone" type="text" name="endTimezone" class="form-control"
-        placeholder="End Timezone" readonly />
+        placeholder="End Timezone" readonly />-->
 
 
     </div>
