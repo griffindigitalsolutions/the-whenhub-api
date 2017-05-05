@@ -13,9 +13,8 @@
     </div>
     <div class="input-group">
       <label>Description</label>
-          <label>Description</label>
-    <textarea formControlName="description" [(ngModel)]="_event.description" [formControl]="_eventForm.controls['description']"
-      name="description" class="form-control" placeholder="Event description" cols="50" rows="10">
+      <textarea formControlName="description" [(ngModel)]="_event.description" [formControl]="_eventForm.controls['description']"
+        name="description" class="form-control" placeholder="Event description" cols="50" rows="10">
       {{ _event.description }}
     </textarea>
     </div>
@@ -28,13 +27,13 @@
       <label for="startDate">Start date and time of your event</label>
       <br/>
       <p-calendar [(ngModel)]="_event.when.startDate" formControlName="startDate" [inline]="false" dateFormat="dd/mm/yy" [minDate]="minDateValue"
-        showTime="showTime" hourFormat="24" [stepMinute]="5" inputStyleClass="form-control" name="startDate"></p-calendar>
+        showTime="showTime" hourFormat="24" [stepMinute]="5" inputStyleClass="" name="startDate" showIcon="true"></p-calendar>
       <br />
 
       <label for="startDate">End date and time of your event (you may leave blank)</label>
       <br/>
       <p-calendar [(ngModel)]="_event.when.endDate" formControlName="endDate" [inline]="false" dateFormat="dd/mm/yy" [minDate]="minDateValue"
-        showTime="showTime" hourFormat="24" [stepMinute]="5" inputStyleClass="form-control" name="endDate"></p-calendar>
+        showTime="showTime" hourFormat="24" [stepMinute]="5" inputStyleClass="" name="endDate" showIcon="true"></p-calendar>
       <!--<input [(ngModel)]="_event.when.startTimezone" formControlName="startTimezone" type="text" name="name" class="form-control"
         placeholder="Start Timezone" readonly />
       <input [(ngModel)]="_event.when.endTimezone" formControlName="endTimezone" type="text" name="endTimezone" class="form-control"

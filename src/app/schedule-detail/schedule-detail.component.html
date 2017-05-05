@@ -13,7 +13,10 @@
         <div *ngIf="_message.message && _message.type == 'success'" class="alert alert-success" role="alert">{{ _message.message }}</div>
         <div *ngIf="_message.message && _message.type == 'error'" class="alert alert-danger" role="alert">There was an error saving data!</div>
 
-
+        <div *ngIf="!_isEditingEvent">
+            <button class="btn btn-default" (click)="addNewEventForm();">Add event</button>
+        </div>
+        <br />
         <div class="panel panel-default" *ngFor="let e of _schedule.events">
             <div class="panel-heading">
                 <h3 class="panel-title">{{ e.name }}</h3>
