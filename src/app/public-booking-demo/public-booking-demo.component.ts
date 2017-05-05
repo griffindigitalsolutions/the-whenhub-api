@@ -15,8 +15,6 @@ export class PublicBookingDemoComponent implements OnInit {
   private _event: Object = { name: '', description: '', when: {}};
   // @Output() editing: EventEmitter<any> = new EventEmitter();
   // @Output() eventChanged: EventEmitter<any> = new EventEmitter();
-  // @Input()
-
 
   private _eventForm: FormGroup;
   private _message: any = { message: '', type: '' }
@@ -53,7 +51,7 @@ export class PublicBookingDemoComponent implements OnInit {
     );
   }
 
-  ngOnInit() {
+  ngOnInit() { 
   }
 
   save() {
