@@ -6,6 +6,7 @@ import { ScheduleListComponent } from '../../schedule-list/schedule-list.compone
 import { ScheduleDetailComponent } from '../../schedule-detail/schedule-detail.component';
 import { EventDetailComponent } from '../../event-detail/event-detail.component'
 import { EditScheduleComponent } from '../../edit-schedule/edit-schedule.component'
+import { PublicBookingDemoComponent } from "app/public-booking-demo/public-booking-demo.component";
 
 export const AllRoutes: Route[] = [
   {
@@ -36,6 +37,11 @@ export const AllRoutes: Route[] = [
   {
     path: 'events/:id',
     component: EventDetailComponent,
+    // canActivate: [AuthGuardService]
+  },
+  {
+    path: 'public-booking-demo',
+    component: PublicBookingDemoComponent,
     // canActivate: [AuthGuardService]
   }
 ];

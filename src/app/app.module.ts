@@ -21,7 +21,9 @@ import { ScheduleListComponent } from './schedule-list/schedule-list.component';
 import { ScheduleDetailComponent } from './schedule-detail/schedule-detail.component';
 import { EditScheduleComponent } from './edit-schedule/edit-schedule.component';
 import { CalendarModule } from 'primeng/primeng';
+import { ScheduleModule } from 'primeng/primeng';
 import { TruncateModule } from 'ng2-truncate';
+import { PublicBookingDemoComponent } from './public-booking-demo/public-booking-demo.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,8 @@ import { TruncateModule } from 'ng2-truncate';
     HomeComponent,
     ScheduleListComponent,
     ScheduleDetailComponent,
-    EditScheduleComponent
+    EditScheduleComponent,
+    PublicBookingDemoComponent
   ],
   imports: [
     BrowserModule,
@@ -42,6 +45,7 @@ import { TruncateModule } from 'ng2-truncate';
     HttpModule,
     ReactiveFormsModule,
     RouterModule.forRoot(routes),
+    ScheduleModule,
     TruncateModule
   ],
   providers: [ // creators of services that this module contributes to the global collection of services; they become accessible in all parts of the app.
