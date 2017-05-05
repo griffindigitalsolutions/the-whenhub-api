@@ -24,6 +24,7 @@ import { CalendarModule, DialogModule, CheckboxModule, ScheduleModule } from 'pr
 import { TruncateModule } from 'ng2-truncate';
 import { PublicBookingDemoComponent } from './public-booking-demo/public-booking-demo.component';
 import { MomentModule } from 'angular2-moment';
+import { PublicEventService } from "app/services/public-event/public-event.service";
 
 @NgModule({
   declarations: [
@@ -54,6 +55,7 @@ import { MomentModule } from 'angular2-moment';
   providers: [ // creators of services that this module contributes to the global collection of services; they become accessible in all parts of the app.
     ApiService,
     ConfigService,
+    PublicEventService,
     ScheduleService,
     Title
   ],

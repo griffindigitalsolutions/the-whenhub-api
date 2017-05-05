@@ -50,7 +50,6 @@ export class EditScheduleComponent implements OnInit {
   }
 
   prepareForm() {
-    //prepare the password reset form
     this._scheduleForm = this.formBuilder.group(
       {
         'name': ['', Validators.required],
