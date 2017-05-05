@@ -7,7 +7,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PublicBookingDemoComponent implements OnInit {
 
+  public event: object = {
+    id: 1,
+    title: 'asd',
+    start: '2017-05-08',
+    end: false,
+    allDay: true
+  };
   public events: object;
+  public header: object = {
+    left: 'prev,next today',
+    center: 'title',
+    right: 'month,agendaWeek,agendaDay'
+  };
 
   constructor() { }
 
@@ -15,25 +27,25 @@ export class PublicBookingDemoComponent implements OnInit {
     this.events = [
       {
         "title": "All Day Event",
-        "start": "2016-01-01"
+        "start": "2017-05-05"
       },
       {
         "title": "Long Event",
-        "start": "2016-01-07",
-        "end": "2016-01-10"
+        "start": "2017-05-05",
+        "end": "2017-05-10"
       },
       {
         "title": "Repeating Event",
-        "start": "2016-01-09T16:00:00"
+        "start": "2017-05-09T16:00:00"
       },
       {
         "title": "Repeating Event",
-        "start": "2016-01-16T16:00:00"
+        "start": "2017-05-16T16:00:00"
       },
       {
         "title": "Conference",
-        "start": "2016-01-11",
-        "end": "2016-01-13"
+        "start": "2017-05-11",
+        "end": "2017-05-13"
       }
     ];
   }

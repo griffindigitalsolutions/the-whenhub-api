@@ -20,10 +20,10 @@ import { HeaderComponent } from './ui-elements/header/header.component';
 import { ScheduleListComponent } from './schedule-list/schedule-list.component';
 import { ScheduleDetailComponent } from './schedule-detail/schedule-detail.component';
 import { EditScheduleComponent } from './edit-schedule/edit-schedule.component';
-import { CalendarModule } from 'primeng/primeng';
-import { ScheduleModule } from 'primeng/primeng';
+import { CalendarModule, DialogModule, CheckboxModule, ScheduleModule } from 'primeng/primeng';
 import { TruncateModule } from 'ng2-truncate';
 import { PublicBookingDemoComponent } from './public-booking-demo/public-booking-demo.component';
+import { MomentModule } from 'angular2-moment';
 
 @NgModule({
   declarations: [
@@ -41,8 +41,11 @@ import { PublicBookingDemoComponent } from './public-booking-demo/public-booking
     BrowserModule,
     BrowserAnimationsModule,
     CalendarModule,
+    CheckboxModule,
+    DialogModule,
     FormsModule,
     HttpModule,
+    MomentModule,
     ReactiveFormsModule,
     RouterModule.forRoot(routes),
     ScheduleModule,
