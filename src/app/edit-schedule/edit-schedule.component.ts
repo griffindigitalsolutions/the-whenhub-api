@@ -40,7 +40,6 @@ export class EditScheduleComponent implements OnInit {
 
   ngOnInit() {
     this.activatedRoute.params
-      // .switchMap((params: Params) => { console.info('xxx'); console.info(params.id); return Observable.of(); })
       .subscribe((data) => {
         if (data && data.id) {
           this.getScheduleDetails(data.id);

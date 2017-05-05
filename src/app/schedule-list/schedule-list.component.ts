@@ -37,12 +37,10 @@ export class ScheduleListComponent implements OnInit {
       (data) => {
         if (data) {
           this.schedules = data;
-          console.log('GETTING DATA')
-          console.log(this.schedules)
         }
       },
       (error) => {
-        alert('error')
+        alert('Error!')
       }
     );
   }

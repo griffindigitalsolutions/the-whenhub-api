@@ -16,7 +16,7 @@
         <div *ngIf="!_isEditingEvent">
             <button class="btn btn-default" (click)="addNewEventForm();">Add event</button>
         </div>
-        <br />
+        <hr />
         <div class="panel panel-default" *ngFor="let e of _schedule.events">
             <div class="panel-heading">
                 <h3 class="panel-title">{{ e.name }}</h3>
@@ -38,7 +38,7 @@
 
         <div *ngIf="!_schedule.events || _schedule.events.length == 0">
             This schedule has no events. Would you like to add one?
-            <br />
+            <hr />
         </div>
     </div>
 
