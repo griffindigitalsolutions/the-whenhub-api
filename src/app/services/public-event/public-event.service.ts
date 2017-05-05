@@ -13,4 +13,11 @@ export class PublicEventService {
       url: this.configService.publicEventAPIUrl + '/events'
     });
   }
+
+  saveEvent(event) {
+    return this.apiService.post({
+      url: this.configService.publicEventAPIUrl + '/events',
+      body: event
+    });
+  }
 }
