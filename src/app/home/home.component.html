@@ -1,65 +1,51 @@
 <div *ngIf="!_configService.whenHubApiKey; else keyExists">
-  <md-grid-list cols="2" rowHeight="2:1.5">
-    <md-grid-tile>
-      <md-card class="example-card">
-        <form class="example-form" [formGroup]='apiKeyForm' (ngSubmit)="setApiKey()">
-          <md-card-header>
+  <div class="row">
+    <div class="col-sm-6 col-md-4">
+      <div class="thumbnail">
+        <div class="caption">
+          <h3>Almost there</h3>
+          <p>Before you can manage your schedule(s), we need your API key.</p>
+          <p>You can find it in your profile page, on whenhub.com. It's only stored in the application and not sent anywhere.
+            Once you close your browser or refresh the page, it's gone.</p>
+          <form class="example-form" [formGroup]='apiKeyForm' (ngSubmit)="setApiKey()">
             <div md-card-avatar class="example-header-image"></div>
-            <md-card-title>API Key Required</md-card-title>
-            <md-card-subtitle>Almost there...</md-card-subtitle>
-          </md-card-header>
-          <md-card-content>
-            <md-input-container class="example-full-width">
+            <p>API Key Required</p>
+            <p>Almost there...</p>
+            <div class="example-full-width">
               <input mdInput formControlName="apiKey" [formControl]="apiKeyForm.controls['apiKey']" type="text" name="apiKey" autofocus
-                placeholder="API key" />
-            </md-input-container>
-            <p>Before you can manage your schedule(s), we need your API key.</p>
-            <p>You can find it in your profile page, on whenhub.com. It's only stored in the application and not sent anywhere.
-              Once you close your browser or refresh the page, it's gone.</p>
-          </md-card-content>
-          <md-card-actions>
-            <button md-button type="submit">Go</button>
-          </md-card-actions>
-        </form>
-      </md-card>
-    </md-grid-tile>
-  </md-grid-list>
+                placeholder="API key"  class="form-control" />
+            </div>
+            <button class="btn btn-primary" type="submit">Go</button>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </div>
 </div>
 <ng-template #keyExists>
-  <md-grid-list cols="2" rowHeight="2:1.5">
-    <md-grid-tile>
-      <md-card class="example-card">
-        <md-card-header>
-          <div md-card-avatar class="example-header-image"></div>
-          <md-card-title>Schedules</md-card-title>
-          <md-card-subtitle>All your schedules and events</md-card-subtitle>
-        </md-card-header>
-        <img md-card-image src="/assets/images/whenhub-logo-square.png">
-        <md-card-content>
-          <p>
-            Manage your schedules and events.
-          </p>
-        </md-card-content>
-        <md-card-actions>
-          <button md-button routerLink="/schedules">Go</button>
-        </md-card-actions>
-      </md-card>
-    </md-grid-tile>
-    <md-grid-tile>
-      <md-card class="example-card">
-        <md-card-header>
-          <div md-card-avatar class="example-header-image"></div>
-          <md-card-title>Appointment request page</md-card-title>
-          <md-card-subtitle>Public page</md-card-subtitle>
-        </md-card-header>
-        <img md-card-image src="/assets/images/public-events-icon.png">
-        <md-card-content>
-          <p>This page allows users to request an appointment with you or your business / organisation.</p>
-        </md-card-content>
-        <md-card-actions>
-          <button md-button routerLink="/public-boooking">Go</button>
-        </md-card-actions>
-      </md-card>
-    </md-grid-tile>
-  </md-grid-list>
+  <div class="col-md-8">
+    <div class="row">
+      <div class="col-sm-6 col-md-4">
+        <div class="thumbnail">
+          <img class="img-responsive" src="/assets/images/whenhub-logo-square.png">
+          <div class="caption">
+            <h3>Schedules</h3>
+            <p>All your schedules and events</p>
+            <p><a class="btn btn-primary" role="button" routerLink="/schedules">Go</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-4">
+        <div class="thumbnail">
+          <img class="img-responsive" src="/assets/images/public-events-icon.png">
+          <div class="caption">
+            <h3>Public Page</h3>
+            <p>This page allows users to request an appointment with you or your business / organisation.</p>
+            <p><a class="btn btn-primary" role="button" routerLink="/public-boooking">Go</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </ng-template>

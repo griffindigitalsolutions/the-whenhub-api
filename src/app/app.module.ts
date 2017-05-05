@@ -6,8 +6,6 @@ import { HttpModule } from '@angular/http';
 import { TheWhenHubApiRoutingModule } from './modules/routing/routing.module';
 import { routes } from './modules/routing/routing.module';
 import { RouterModule } from '@angular/router';
-import { MaterialModule } from '@angular/material';
-import { MdInputModule } from '@angular/material';
 
 import { ConfigService } from './services/config/config.service';
 import { ApiService } from './services/api/api.service';
@@ -19,7 +17,6 @@ import { EventDetailComponent } from './event-detail/event-detail.component';
 import { HomeComponent } from './home/home.component';
 import { FooterComponent } from './ui-elements/footer/footer.component';
 import { HeaderComponent } from './ui-elements/header/header.component';
-import 'hammerjs';
 import { ScheduleListComponent } from './schedule-list/schedule-list.component';
 import { ScheduleDetailComponent } from './schedule-detail/schedule-detail.component';
 import { EditScheduleComponent } from './edit-schedule/edit-schedule.component';
@@ -43,9 +40,6 @@ import { TruncateModule } from 'ng2-truncate';
     CalendarModule,
     FormsModule,
     HttpModule,
-    MaterialModule.forRoot(),
-    MdInputModule,
-    // MaterialDesignModule
     ReactiveFormsModule,
     RouterModule.forRoot(routes),
     TruncateModule
