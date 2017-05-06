@@ -22,12 +22,12 @@
                 <h3 class="panel-title">{{ e.name }}</h3>
             </div>
             <div class="panel-body">
-                <p [innerHTML]="e.description | words : 15 : '...' "></p>
-                <p>Start Date : {{ e.when.startDate | date }} </p>
+                <p [innerHTML]="e.description | words : 30 : '...' "></p>
+                <p><b>Start Date :</b> {{ e.when.startDate | date:'fullDate' }} </p>
                 <!--<p> {{ e.when.period }} </p>-->
-                <p *ngIf="e.when.endDate">End Date : {{ e.when.endDate | date }} </p>
+                <p *ngIf="e.when.endDate"><b>End Date :</b> {{ e.when.endDate | date:'fullDate' }} </p>
                 <div class="btn-group" role="group">
-                    <button class="btn btn-default" (click)="editEvent(e);">Details</button>
+                    <button class="btn btn-default" (click)="editEvent(e);">Edit</button>
                     <button class="btn btn-danger" (click)="deleteEvent(e.id)">
                         <span *ngIf="e.id === _confirmDeletingId">Are you sure?</span>
                         <span *ngIf="e.id !== _confirmDeletingId">Delete</span>

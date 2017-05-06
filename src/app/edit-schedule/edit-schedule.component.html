@@ -16,7 +16,7 @@
   <form class="example-form" [formGroup]="_scheduleForm">
     <p>You can edit or add a new schedule here.</p>
     <p>Schedules are containers for events. For example, you can have a schedule for family relevent dated activities and another one for work.</p>
-    <label>Name</label>
+    <label>Name *</label>
     <input formControlName="name" [(ngModel)]="_schedule.name" [formControl]="_scheduleForm.controls['name']" type="text" name="name"
       class="form-control" placeholder="Schedule name" />
 

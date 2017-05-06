@@ -7,7 +7,7 @@
     <p>You can edit your event here. This event is part of a schedule.</p>
     <hr />
     <div class="input-group">
-      <label>Name</label>
+      <label>Name *</label>
       <input formControlName="name" [(ngModel)]="_event.name" [formControl]="_eventForm.controls['name']" type="text" name="name"
         class="form-control" placeholder="Event name" />
     </div>
@@ -24,7 +24,7 @@
       <small>How do you want to save this event as? A day event, a month long event etc.</small>
       <input [(ngModel)]="_event.when.period" formControlName="period" type="text" name="period" class="form-control" placeholder="Period" />-->
 
-      <label for="startDate">Start date and time of your event</label>
+      <label for="startDate">Start date and time of your event *</label>
       <br/>
       <p-calendar [(ngModel)]="_event.when.startDate" formControlName="startDate" [inline]="false" dateFormat="dd/mm/yy" [minDate]="minDateValue"
         showTime="showTime" hourFormat="24" [stepMinute]="5" inputStyleClass="" name="startDate" showIcon="true"></p-calendar>

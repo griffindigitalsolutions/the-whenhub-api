@@ -5,17 +5,16 @@
         <div class="caption">
           <h3>Almost there</h3>
           <p>Before you can manage your schedule(s), we need your API key.</p>
-          <p>You can find it in your profile page, on whenhub.com. It's only stored in the application and not sent anywhere.
+          <p>You can find it in your profile page, on whenhub.com. It's saved temporarily in your browser and not sent anywhere.
             Once you close your browser or refresh the page, it's gone.</p>
           <form class="example-form" [formGroup]='apiKeyForm' (ngSubmit)="setApiKey()">
             <div md-card-avatar class="example-header-image"></div>
-            <p>API Key Required</p>
-            <p>Almost there...</p>
+            <b>API Key</b>
             <div class="example-full-width">
               <input mdInput formControlName="apiKey" [formControl]="apiKeyForm.controls['apiKey']" type="text" name="apiKey" autofocus
                 placeholder="API key" class="form-control" />
             </div>
-            <button class="btn btn-primary" type="submit">Go</button>
+            <button class="btn btn-primary" type="submit">Save</button>
           </form>
         </div>
       </div>

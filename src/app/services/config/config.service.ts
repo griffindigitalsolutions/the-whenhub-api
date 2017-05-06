@@ -4,8 +4,8 @@ import { Injectable } from '@angular/core';
 export class ConfigService {
 
   //add configuration settings
-  public whenHubApiKey: string = 'bmPLjpJyIZHJpd7PzLPDouYmwA4dy9HPgKfiyAsRCzTMy3EoNvebKCOYTUy3diPL';
-  // public whenHubApiKey: string = '';
+  // public whenHubApiKey: string = 'bmPLjpJyIZHJpd7PzLPDouYmwA4dy9HPgKfiyAsRCzTMy3EoNvebKCOYTUy3diPL';
+  public whenHubApiKey: string = '';
   public publicEventAPIUrl = 'http://localhost:3000';
 
   constructor() { }

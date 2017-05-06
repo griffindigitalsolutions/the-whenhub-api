@@ -6,21 +6,21 @@
     <form class="example-form" [formGroup]="_eventForm" #publicEventForm="ngForm">
         <hr />
         <div class="input-group">
-            <label>Name</label>
+            <label>Name *</label>
             <input formControlName="name" [(ngModel)]="_event.name" [formControl]="_eventForm.controls['name']" type="text" name="name"
                 class="form-control" placeholder="Event name" />
         </div>
         <div class="input-group">
             <label>Description</label>
             <textarea formControlName="description" [(ngModel)]="_event.description" [formControl]="_eventForm.controls['description']"
-                name="description" class="form-control" placeholder="Event description" cols="50" rows="10">
+                name="description" class="form-control" placeholder="Event description" cols="50" rows="5">
                 {{ _event.description }}
             </textarea>
         </div>
 
         <div formGroupName="when" class="form-group" *ngIf="_event && _event.when">
 
-            <label for="startDate">Start date and time of your request</label>
+            <label for="startDate">Start date and time of your request *</label>
             <br/>
             <p-calendar [(ngModel)]="_event.when.startDate" formControlName="startDate" [inline]="false" dateFormat="dd M, yy"
                 showTime="true" hourFormat="24" [stepMinute]="5" name="startDate" showIcon="true" [minDate]="_minDate" required></p-calendar>
@@ -34,7 +34,7 @@
         </div>
 
         <div class="btn-group" role="group">
-            <button class="btn btn-default" (click)="save(); $event.preventDefault()" [disabled]="!_eventForm.controls['name'].valid">SAVE</button>
+            <button class="btn btn-default" (click)="save(); $event.preventDefault()" [disabled]="!_eventForm.controls['name'].valid || !_event.when.startDate">SAVE</button>
         </div>
     </form>
 </div>
