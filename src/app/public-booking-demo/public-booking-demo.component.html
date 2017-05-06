@@ -1,14 +1,9 @@
 <div class="col-sm-6 col-md-4">
-    <p>This is where a user can request an appointment.</p>
-    {{ events| json}}
-</div>
-<div class="col-sm-6 col-md-4">
     <h2>Request appointment</h2>
-    <p>Use the below form to request an appointment. <br /> You will be contacted to confirm</p>
+    <p>Use the below form to request an appointment. <br /> You will be contacted to confirm.</p>
     <div *ngIf="_message.message && _message.type == 'success'" class="alert alert-success" role="alert">Data saved!</div>
     <div *ngIf="_message.message && _message.type == 'error'" class="alert alert-danger" role="alert">There was an error saving data!</div>
     <form class="example-form" [formGroup]="_eventForm">
-        <p>You can edit your event here. This event is part of a schedule.</p>
         <hr />
         <div class="input-group">
             <label>Name</label>
@@ -23,18 +18,18 @@
             </textarea>
         </div>
 
-        <div formGroupName="when" class="form-group">
+        <div formGroupName="when" class="form-group" *ngIf="_event && _event.when">
 
             <label for="startDate">Start date and time of your request</label>
             <br/>
             <p-calendar [(ngModel)]="_event.when.startDate" formControlName="startDate" [inline]="false" dateFormat="dd/mm/yy" [minDate]="minDateValue"
-                showTime="showTime" hourFormat="24" [stepMinute]="5" inputStyleClass="" name="startDate" showIcon="true"></p-calendar>
+                showTime="showTime" hourFormat="24" [stepMinute]="5" name="startDate" showIcon="true"></p-calendar>
             <br />
 
             <label for="startDate">End date and time of your request (you may leave blank)</label>
             <br/>
             <p-calendar [(ngModel)]="_event.when.endDate" formControlName="endDate" [inline]="false" dateFormat="dd/mm/yy" [minDate]="minDateValue"
-                showTime="showTime" hourFormat="24" [stepMinute]="5" inputStyleClass="" name="endDate" showIcon="true"></p-calendar>
+                showTime="showTime" hourFormat="24" [stepMinute]="5" name="endDate" showIcon="true"></p-calendar>
 
         </div>
 

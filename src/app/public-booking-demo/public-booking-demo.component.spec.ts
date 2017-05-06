@@ -25,7 +25,6 @@ fdescribe('PublicBookingDemoComponent', () => {
       ],
       providers: [
         { provide: ApiService, useClass: FakeApiService }, 
-        BrowserAnimationsModule,
         ConfigService,
         PublicEventService,
         ScheduleService
