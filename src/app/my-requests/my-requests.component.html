@@ -1,0 +1,66 @@
+<div class="col-md-4">
+  <h2>Requests</h2>
+  <p>These are your users' requests. You can approve or reject them here. You can also edit them before approval.</p>
+  <hr />
+  <div *ngIf="_message.message && _message.type == 'success'" class="alert alert-success" role="alert">{{ _message.message }}</div>
+  <div *ngIf="_message.message && _message.type == 'error'" class="alert alert-danger" role="alert">{{ _message.message }}</div>
+
+  <div *ngIf="requests">
+    <div class="panel panel-default" *ngFor="let r of requests; let i = index">
+      <div class="panel-heading">
+        <h3 class="panel-title">{{ r.name }}</h3>
+      </div>
+      <div class="panel-body">
+        <form>
+          <div class="input-group row">
+            <div class="col-md-6">
+              <label>Name *</label>
+              <input [(ngModel)]="r.name" type="text" name="name" class="form-control" placeholder="Event name" />
+            </div>
+            <div class="col-md-6">
+              <label>Schedule *</label>
+              <select [(ngModel)]="r.scheduleId" name="scheduleId" id="scheduleId" class="form-control">
+                <option value="{{ s.id }}" *ngFor="let s of schedules">{{ s.name }}</option>
+              </select>
+            </div>
+          </div>
+          <div class="input-group">
+            <label>Description</label>
+            <textarea [(ngModel)]="r.description" name="description" class="form-control" placeholder="Event description" cols="50" rows="3">
+              {{ r.description }}
+            </textarea>
+          </div>
+
+          <div class="form-group" *ngIf="r && r.when">
+
+            <label for="startDate">Requested Start date and time *</label>
+            <br/>
+            <p-calendar [(ngModel)]="r.when.startDate" [inline]="false" dateFormat="dd/mm/yy" [minDate]="minDateValue" showTime="true"
+              hourFormat="24" [stepMinute]="5" name="startDate" showIcon="true"></p-calendar>
+            <br />
+
+            <label for="startDate">Requested End date and time (optional)</label>
+            <br/>
+            <p-calendar [(ngModel)]="r.when.endDate" [inline]="false" dateFormat="dd/mm/yy" [minDate]="minDateValue" showTime="true"
+              hourFormat="24" [stepMinute]="5" name="endDate" showIcon="true"></p-calendar>
+
+
+          </div>
+
+          <div class="btn-group" role="group">
+            <button class="btn btn-default" (click)="approveRequest(i)" [disabled]="!r.scheduleId || !r.name || !r.when.startDate">Save</button>
+            <button class="btn btn-danger" (click)="deleteRequest(r.id)">
+                <span *ngIf="r.id === _confirmDeletingId">Are you sure?</span>
+                <span *ngIf="r.id !== _confirmDeletingId">Delete</span>
+            </button>
+          </div>
+        </form>
+
+
+
+      </div>
+    </div>
+  </div>
+  <div *ngIf="requests.length == 0">You have no requests at the moment.</div>
+
+</div>

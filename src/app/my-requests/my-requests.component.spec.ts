@@ -1,25 +1,25 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PublicBookingDemoComponent } from './public-booking-demo.component';
-import { ReactiveFormsModule } from "@angular/forms";
-import { CalendarModule } from "primeng/primeng";
+import { MyRequestsComponent } from './my-requests.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'
+import { CalendarModule } from 'primeng/primeng';
+import { ApiService } from "app/services/api/api.service";
+import { FakeApiService } from "app/testing/fake-api.service";
 import { ConfigService } from "app/services/config/config.service";
 import { ScheduleService } from "app/services/schedule/schedule.service";
-import { FakeApiService } from "app/testing/fake-api.service";
-import { ApiService } from "app/services/api/api.service";
 import { PublicEventService } from "app/services/public-event/public-event.service";
-import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
-xdescribe('PublicBookingDemoComponent', () => {
-  let component: PublicBookingDemoComponent;
-  let fixture: ComponentFixture<PublicBookingDemoComponent>;
+describe('MyRequestsComponent', () => {
+  let component: MyRequestsComponent;
+  let fixture: ComponentFixture<MyRequestsComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ 
-        PublicBookingDemoComponent 
+        MyRequestsComponent 
       ],
       imports: [
+        FormsModule,
         CalendarModule,
         ReactiveFormsModule
       ],
@@ -34,7 +34,7 @@ xdescribe('PublicBookingDemoComponent', () => {
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PublicBookingDemoComponent);
+    fixture = TestBed.createComponent(MyRequestsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

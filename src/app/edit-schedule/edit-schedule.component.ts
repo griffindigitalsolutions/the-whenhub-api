@@ -108,22 +108,3 @@ export class EditScheduleComponent implements OnInit {
   }
 
 }
-
-/*
-{
-   "calendar":{
-      "calendarType":"absolute"
-   },
-   "name":"test2212",
-   "curator":"Ra Chris",
-   "scope":"public",
-   "sync":false,
-   "viewCode":"1FwK83",
-   "id":"5908e960f5078c0a7046d5d3",
-   "userId":"5905d9a437443e3590fd7902",
-   "createdAt":"2017-05-02T20:17:36.000Z",
-   "updatedAt":"2017-05-02T21:14:16.000Z",
-   "updatedBy":"5905d9a437443e3590fd7902",
-   "media":[]
-}
-*/

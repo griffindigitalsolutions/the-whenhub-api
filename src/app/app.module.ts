@@ -25,6 +25,7 @@ import { TruncateModule } from 'ng2-truncate';
 import { PublicBookingDemoComponent } from './public-booking-demo/public-booking-demo.component';
 import { MomentModule } from 'angular2-moment';
 import { PublicEventService } from "app/services/public-event/public-event.service";
+import { MyRequestsComponent } from './my-requests/my-requests.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { PublicEventService } from "app/services/public-event/public-event.servi
     ScheduleListComponent,
     ScheduleDetailComponent,
     EditScheduleComponent,
-    PublicBookingDemoComponent
+    PublicBookingDemoComponent,
+    MyRequestsComponent
   ],
   imports: [
     BrowserModule,

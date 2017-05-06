@@ -3,7 +3,7 @@
     <p>Use the below form to request an appointment. <br /> You will be contacted to confirm.</p>
     <div *ngIf="_message.message && _message.type == 'success'" class="alert alert-success" role="alert">Data saved!</div>
     <div *ngIf="_message.message && _message.type == 'error'" class="alert alert-danger" role="alert">There was an error saving data!</div>
-    <form class="example-form" [formGroup]="_eventForm">
+    <form class="example-form" [formGroup]="_eventForm" #publicEventForm="ngForm">
         <hr />
         <div class="input-group">
             <label>Name</label>
@@ -22,14 +22,14 @@
 
             <label for="startDate">Start date and time of your request</label>
             <br/>
-            <p-calendar [(ngModel)]="_event.when.startDate" formControlName="startDate" [inline]="false" dateFormat="dd/mm/yy" [minDate]="minDateValue"
-                showTime="showTime" hourFormat="24" [stepMinute]="5" name="startDate" showIcon="true"></p-calendar>
+            <p-calendar [(ngModel)]="_event.when.startDate" formControlName="startDate" [inline]="false" dateFormat="dd M, yy"
+                showTime="true" hourFormat="24" [stepMinute]="5" name="startDate" showIcon="true" [minDate]="_minDate" required></p-calendar>
             <br />
 
             <label for="startDate">End date and time of your request (you may leave blank)</label>
             <br/>
-            <p-calendar [(ngModel)]="_event.when.endDate" formControlName="endDate" [inline]="false" dateFormat="dd/mm/yy" [minDate]="minDateValue"
-                showTime="showTime" hourFormat="24" [stepMinute]="5" name="endDate" showIcon="true"></p-calendar>
+            <p-calendar [(ngModel)]="_event.when.endDate" formControlName="endDate" [inline]="false" dateFormat="dd M, yy"
+                showTime="true" hourFormat="24" [stepMinute]="5" name="endDate" showIcon="true" [minDate]="_event.when.startDate"></p-calendar>
 
         </div>
 
@@ -38,4 +38,3 @@
         </div>
     </form>
 </div>
-{{ _event | json }}

@@ -8,6 +8,9 @@ export class PublicEventService {
   constructor(public apiService: ApiService,
     public configService: ConfigService) { }
 
+  getRequests() {
+    return this.getEvents();
+  }
   getEvents() {
     return this.apiService.get({
       url: this.configService.publicEventAPIUrl + '/events'
@@ -20,4 +23,12 @@ export class PublicEventService {
       body: event
     });
   }
+
+  deleteRequest(id) { return this.deleteEvent(id); }
+  deleteEvent(id) {
+    return this.apiService.delete({
+      url: this.configService.publicEventAPIUrl + '/events/' + id,
+    });
+  }
+
 }

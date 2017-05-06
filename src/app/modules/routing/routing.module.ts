@@ -7,6 +7,7 @@ import { ScheduleDetailComponent } from '../../schedule-detail/schedule-detail.c
 import { EventDetailComponent } from '../../event-detail/event-detail.component'
 import { EditScheduleComponent } from '../../edit-schedule/edit-schedule.component'
 import { PublicBookingDemoComponent } from "app/public-booking-demo/public-booking-demo.component";
+import { MyRequestsComponent } from "app/my-requests/my-requests.component";
 
 export const AllRoutes: Route[] = [
   {
@@ -42,6 +43,11 @@ export const AllRoutes: Route[] = [
   {
     path: 'public-booking-demo',
     component: PublicBookingDemoComponent,
+    // canActivate: [AuthGuardService]
+  },
+  {
+    path: 'my-requests',
+    component: MyRequestsComponent,
     // canActivate: [AuthGuardService]
   }
 ];
