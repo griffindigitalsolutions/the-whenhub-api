@@ -39,6 +39,8 @@ Start the application
 
 GO to localhost:4200 to view the app
 
+Open a new terminal and go to src/the-whenhub-api-json-server
+
 Setup json-server https://www.npmjs.com/package/json-server
 `npm install -g json-server`
 
@@ -46,7 +48,7 @@ Change directory into the json-server
 `cd src/the-whenhub-api-json-server`
 You need to start the json server
 `json-server --watch events.json`
-You should now be able to go to localhost:3000 and see the events.
+You should now be able to go to localhost:3000 and see the events (initially, none exist)
 
 If you followed the above, you are ready to go
 
