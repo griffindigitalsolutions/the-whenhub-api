@@ -9,7 +9,6 @@ import { ConfigService } from './services/config/config.service';
 
 
 export class AppComponent {
-  constructor(private _configService: ConfigService) {
-
+  constructor() {
   }
 }

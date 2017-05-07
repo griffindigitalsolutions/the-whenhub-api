@@ -15,8 +15,6 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 export class EditScheduleComponent implements OnInit {
 
   private _schedule: Object = {};
-  // @Output() editing: EventEmitter<any> = new EventEmitter();
-  // @Output() eventChanged: EventEmitter<any> = new EventEmitter();
   @Input()
   set schedule(schedule: Object) {
     if (schedule) { //this is undefined to start with
@@ -90,7 +88,7 @@ export class EditScheduleComponent implements OnInit {
   }
 
   delete() {
-    alert('deleting')
+    // alert('deleting')
   }
 
   getScheduleDetails(scheduleId) {

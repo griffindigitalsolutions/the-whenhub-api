@@ -19,9 +19,9 @@ describe('AuthGuardService', () => {
                 RouterTestingModule
             ]
         });
-});
+    });
 
-it('should ...', inject([AuthGuardService], (service: AuthGuardService) => {
-    expect(service).toBeTruthy();
-}));
+    it('should ...', inject([AuthGuardService], (service: AuthGuardService) => {
+        expect(service).toBeTruthy();
+    }));
 });

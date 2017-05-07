@@ -43,7 +43,7 @@ export const AllRoutes: Route[] = [
   {
     path: 'public-booking-demo',
     component: PublicBookingDemoComponent,
-    canActivate: [AuthGuardService]
+    // canActivate: [AuthGuardService]
   },
   {
     path: 'my-requests',

@@ -12,9 +12,7 @@ import { FormBuilder, FormGroup, FormControl, Validators, AbstractControl } from
 })
 export class PublicBookingDemoComponent implements OnInit {
 
-  private _event: Object = { name: '', description: '', when: {}};
-  // @Output() editing: EventEmitter<any> = new EventEmitter();
-  // @Output() eventChanged: EventEmitter<any> = new EventEmitter();
+  private _event: Object = { name: '', description: '', when: {} };
 
   private _eventForm: FormGroup;
   private _message: any = { message: '', type: '' }
@@ -29,6 +27,9 @@ export class PublicBookingDemoComponent implements OnInit {
     public scheduleService: ScheduleService,
     public publicEventService: PublicEventService
   ) {
+
+    //set the page title
+    titleService.setTitle('Make an appointment request');
 
     //prepare the password reset form
     this._eventForm = this.formBuilder.group(
@@ -51,7 +52,7 @@ export class PublicBookingDemoComponent implements OnInit {
     );
   }
 
-  ngOnInit() { 
+  ngOnInit() {
   }
 
   save() {
@@ -64,7 +65,7 @@ export class PublicBookingDemoComponent implements OnInit {
       (data) => {
         this._message.message = 'Your request has been sent!';
         this._message.type = 'success';
-        this._event = { name: '', description: '', when: {}};
+        this._event = { name: '', description: '', when: {} };
       },
       (error) => {
         this._message.message = 'Error saving data!';

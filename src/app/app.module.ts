@@ -55,7 +55,7 @@ import { AuthGuardService } from "app/services/auth-guard/auth-guard.service";
     ScheduleModule,
     TruncateModule
   ],
-  providers: [ // creators of services that this module contributes to the global collection of services; they become accessible in all parts of the app.
+  providers: [
     ApiService,
     AuthGuardService,
     ConfigService,

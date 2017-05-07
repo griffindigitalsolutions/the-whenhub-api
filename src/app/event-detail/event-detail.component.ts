@@ -95,7 +95,7 @@ export class EventDetailComponent implements OnInit {
       this.scheduleService.saveEvent(this._event).subscribe(
         (data) => {
           this._message.message = 'Data saved!';
-          this._message.type = 'danger';
+          this._message.type = 'success';
         },
         (error) => {
           this._message.message = 'Error saving data!';

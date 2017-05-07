@@ -133,7 +133,4 @@ export class ApiService {
     return this._http.put(data.url, data.content, requestOptions).map(res => res.json());
 
   }
-
-
-
 }
