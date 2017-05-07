@@ -9,8 +9,8 @@ The second unique idea is that besides managing your events, this also allows a 
 For example, this application (once further developed) would act as an appointnent manager for a cleaning company, dentist or any other professional or company / public institution that needs to manage time based appointments .
 
 ## Technologies used
-My entry is writting in TypeScript and uses the Angular framework. (Same as the whenhub studio :) )
-As a temporary / demo API for events, I have used json-server (npm package)
+My entry is written in TypeScript and uses the Angular framework. (Same as the whenhub studio :) )
+As a temporary / demo API for public appointment requests, I have used json-server (npm package)
 
 ## Quick instructions
 Upon opening the app you will be required to input your api key. The key is not saved anywhere and will be lost on refreshing or closing the browser window
@@ -26,7 +26,9 @@ In order to simulate an api server (where the public requests are saved), I am u
 Angular requires to either be built (`ng build`) and served from a website, or run with `ng serve`
 
 ## Step by step
-You need angular CLI
+First of all, you need nodejs and npm pacakge manager
+
+You need angular CLI which is installed with this command: 
 `npm install -g @angular/cli`
 
 Go to your work directory.
@@ -37,7 +39,7 @@ Change directory into the cloned app
 Start the application
 `ng serve`
 
-GO to localhost:4200 to view the app
+Open localhost:4200 in your browser to view the app
 
 Open a new terminal and go to src/the-whenhub-api-json-server
 
