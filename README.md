@@ -37,6 +37,8 @@ Clone from the repo
 `git clone https://github.com/kilroy05/the-whenhub-api.git`
 Change directory into the cloned app
 `cd the-whenhub-api`
+Install packages
+`npm install`
 Start the application
 `ng serve`
 
