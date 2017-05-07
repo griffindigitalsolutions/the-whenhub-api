@@ -11,6 +11,7 @@ For example, this application (once further developed) would act as an appointne
 ## Technologies used
 My entry is written in TypeScript and uses the Angular framework. (Same as the whenhub studio :) )
 As a temporary / demo API for public appointment requests, I have used json-server (npm package)
+This holds public requests, as the public does not have access to the whenhub api. Only the schedule owner can create events into it, so this acts as a 'buffer'
 
 ## Quick instructions
 Upon opening the app you will be required to input your api key. The key is not saved anywhere and will be lost on refreshing or closing the browser window
