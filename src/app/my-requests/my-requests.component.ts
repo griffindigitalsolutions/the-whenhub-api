@@ -85,7 +85,6 @@ export class MyRequestsComponent implements OnInit {
     //dates ... require period...
     request.when.period = 'minute';
     delete request.id;
-    console.log(request)
 
     this.scheduleService.saveNewEvent(request).subscribe(
       (data) => {

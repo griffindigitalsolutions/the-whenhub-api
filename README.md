@@ -18,6 +18,7 @@ Upon opening the app you will be required to input your api key. The key is not 
 1. Schedules > manage your schedules and events
 2. My Requests > manage public requests
 3. Demo page > which is a demo page for a public request page. Users will use this page to request an appointment at a given date / time
+This page would be a stand alone application in a full product release, but is included in this application as a convenience.
 
 ## Set Up
 I have included instructions below, however, for your convenience, also included an installation deployed by me here : http://griffin.digital

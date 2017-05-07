@@ -1,3 +1,12 @@
 {
-  "events": []
+  "events": [
+    {
+      "name": "edited22",
+      "description": "dassd",
+      "when": {
+        "startDate": "2017-05-09T14:11:33.000Z"
+      },
+      "id": 1
+    }
+  ]
 }
