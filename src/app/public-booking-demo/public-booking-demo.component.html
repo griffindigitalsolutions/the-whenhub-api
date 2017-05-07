@@ -1,8 +1,7 @@
 <div class="col-sm-6 col-md-4">
     <h2>Request appointment</h2>
     <p>Use the below form to request an appointment. <br /> You will be contacted to confirm.</p>
-    <div *ngIf="_message.message && _message.type == 'success'" class="alert alert-success" role="alert">Data saved!</div>
-    <div *ngIf="_message.message && _message.type == 'error'" class="alert alert-danger" role="alert">There was an error saving data!</div>
+    <div *ngIf="_message.message" class="alert alert-{{ _message.type }}" role="alert">{{ _message.message }}</div>
     <form class="example-form" [formGroup]="_eventForm" #publicEventForm="ngForm">
         <hr />
         <div class="input-group">

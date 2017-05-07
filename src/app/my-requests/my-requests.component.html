@@ -2,8 +2,7 @@
   <h2>Requests</h2>
   <p>These are your users' requests. You can approve or reject them here. You can also edit them before approval.</p>
   <hr />
-  <div *ngIf="_message.message && _message.type == 'success'" class="alert alert-success" role="alert">{{ _message.message }}</div>
-  <div *ngIf="_message.message && _message.type == 'error'" class="alert alert-danger" role="alert">{{ _message.message }}</div>
+  <div *ngIf="_message.message" class="alert alert-{{ _message.type }}" role="alert">{{ _message.message }}</div>
 
   <div *ngIf="requests">
     <div class="panel panel-default" *ngFor="let r of requests; let i = index">

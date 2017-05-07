@@ -68,7 +68,7 @@ export class PublicBookingDemoComponent implements OnInit {
       },
       (error) => {
         this._message.message = 'Error saving data!';
-        this._message.type = 'error';
+        this._message.type = 'danger';
       }
     );
   }

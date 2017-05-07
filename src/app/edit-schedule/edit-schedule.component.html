@@ -9,9 +9,7 @@
     <li class="active">{{ _schedule.name || 'New schedule' }}</li>
   </ol>
 
-  <div *ngIf="_message.message && _message.type == 'success'" class="alert alert-success" role="alert">
-    Data saved!</div>
-  <div *ngIf="_message.message && _message.type == 'error'" class="alert alert-danger" role="alert">There was an error saving data!</div>
+  <div *ngIf="_message.message" class="alert alert-{{ _message.type }}" role="alert">{{ _message.message }}</div>
 
   <form class="example-form" [formGroup]="_scheduleForm">
     <p>You can edit or add a new schedule here.</p>

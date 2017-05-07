@@ -85,7 +85,7 @@ export class ScheduleDetailComponent implements OnInit {
         },
         (error) => {
           this._message.message = 'Error deleting event!';
-          this._message.type = 'error';
+          this._message.type = 'danger';
         }
       );
     }

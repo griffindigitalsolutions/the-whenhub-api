@@ -69,7 +69,7 @@ export class ScheduleListComponent implements OnInit {
         },
         (error) => {
           this._message.message = 'Error deleting schedule!';
-          this._message.type = 'error';
+          this._message.type = 'danger';
         }
       );
     }

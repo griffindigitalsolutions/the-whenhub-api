@@ -6,7 +6,7 @@ import { ConfigService } from "app/services/config/config.service";
 import { RouterTestingModule } from "@angular/router/testing";
 import { Router } from "@angular/router";
 
-fdescribe('AuthGuardService', () => {
+describe('AuthGuardService', () => {
     beforeEach(() => {
         TestBed.configureTestingModule({
             declarations: [

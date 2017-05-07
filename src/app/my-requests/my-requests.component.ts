@@ -98,7 +98,7 @@ export class MyRequestsComponent implements OnInit {
           },
           (error) => {
             this._message.message = 'Error saving data!';
-            this._message.type = 'error';
+            this._message.type = 'danger';
           }
         );
       }),
@@ -129,7 +129,7 @@ export class MyRequestsComponent implements OnInit {
         },
         (error) => {
           this._message.message = 'Unable to delete request. No changes were made to your schedule!';
-          this._message.type = 'error';
+          this._message.type = 'danger';
         }
       );
     }

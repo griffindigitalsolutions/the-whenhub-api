@@ -1,8 +1,7 @@
 <div class="col-md-12">
   <h2>Edit event</h2>
 
-  <div *ngIf="_message.message && _message.type == 'success'" class="alert alert-success" role="alert">Data saved!</div>
-  <div *ngIf="_message.message && _message.type == 'error'" class="alert alert-danger" role="alert">There was an error saving data!</div>
+  <div *ngIf="_message.message" class="alert alert-{{ _message.type }}" role="alert">{{ _message.message }}</div>
   <form class="example-form" [formGroup]="_eventForm">
     <p>You can edit your event here. This event is part of a schedule.</p>
     <hr />
@@ -14,7 +13,7 @@
     <div class="input-group">
       <label>Description</label>
       <textarea formControlName="description" [(ngModel)]="_event.description" [formControl]="_eventForm.controls['description']"
-        name="description" class="form-control" placeholder="Event description" cols="50" rows="10">
+        name="description" class="form-control" placeholder="Event description" cols="50" rows="5">
       {{ _event.description }}
     </textarea>
     </div>

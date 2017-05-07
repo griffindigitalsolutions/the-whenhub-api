@@ -10,8 +10,7 @@
     </ol>
 
     <div *ngIf="!_isEditingEvent">
-        <div *ngIf="_message.message && _message.type == 'success'" class="alert alert-success" role="alert">{{ _message.message }}</div>
-        <div *ngIf="_message.message && _message.type == 'error'" class="alert alert-danger" role="alert">There was an error saving data!</div>
+        <div *ngIf="_message.message" class="alert alert-{{ _message.type }}" role="alert">{{ _message.message }}</div>
 
         <div *ngIf="!_isEditingEvent">
             <button class="btn btn-default" (click)="addNewEventForm();">Add event</button>

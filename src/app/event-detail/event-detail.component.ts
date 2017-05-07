@@ -88,18 +88,18 @@ export class EventDetailComponent implements OnInit {
         },
         (error) => {
           this._message.message = 'Error saving data!';
-          this._message.type = 'error';
+          this._message.type = 'danger';
         }
       );
     } else {
       this.scheduleService.saveEvent(this._event).subscribe(
         (data) => {
           this._message.message = 'Data saved!';
-          this._message.type = 'success';
+          this._message.type = 'danger';
         },
         (error) => {
           this._message.message = 'Error saving data!';
-          this._message.type = 'error';
+          this._message.type = 'danger';
         }
       );
     }
