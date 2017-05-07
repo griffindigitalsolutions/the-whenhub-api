@@ -61,8 +61,8 @@ If you followed the above, you are ready to go
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.1.
 
 
-## Feedback 
-Your API allowed me to create an event with the id ""
+## Feedback on the Whenhub API
+Your API allowed me to create an event with the id "" (empty)
 This meant the event could not be deleted or edited without removing the schedule containing it
 Documentation is incomplete and in cases, incorrect. I used whenhub studio / network view to see the correct API use
 
