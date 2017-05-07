@@ -8,47 +8,47 @@ import { EventDetailComponent } from '../../event-detail/event-detail.component'
 import { EditScheduleComponent } from '../../edit-schedule/edit-schedule.component'
 import { PublicBookingDemoComponent } from "app/public-booking-demo/public-booking-demo.component";
 import { MyRequestsComponent } from "app/my-requests/my-requests.component";
+import { AuthGuardService } from "app/services/auth-guard/auth-guard.service";
 
 export const AllRoutes: Route[] = [
   {
     path: '',
-    component: HomeComponent,
-    // canActivate: [AuthGuardService]
+    component: HomeComponent
   },
   {
     path: 'schedules',
     component: ScheduleListComponent,
-    // canActivate: [AuthGuardService]
+    canActivate: [AuthGuardService]
   },
   {
     path: 'schedules/new',
     component: EditScheduleComponent,
-    // canActivate: [AuthGuardService]
+    canActivate: [AuthGuardService]
   },
   {
     path: 'schedules/:id',
     component: ScheduleDetailComponent,
-    // canActivate: [AuthGuardService]
+    canActivate: [AuthGuardService]
   },
   {
     path: 'schedules/:id/edit',
     component: EditScheduleComponent,
-    // canActivate: [AuthGuardService]
+    canActivate: [AuthGuardService]
   },
   {
     path: 'events/:id',
     component: EventDetailComponent,
-    // canActivate: [AuthGuardService]
+    canActivate: [AuthGuardService]
   },
   {
     path: 'public-booking-demo',
     component: PublicBookingDemoComponent,
-    // canActivate: [AuthGuardService]
+    canActivate: [AuthGuardService]
   },
   {
     path: 'my-requests',
     component: MyRequestsComponent,
-    // canActivate: [AuthGuardService]
+    canActivate: [AuthGuardService]
   }
 ];
 
@@ -56,7 +56,7 @@ export const routes: Routes = [
   ...AllRoutes,
   {
     path: '*other',
-    redirectTo: '/'
+    redirectTo: ''
   },
 ];
 

@@ -26,6 +26,7 @@ import { PublicBookingDemoComponent } from './public-booking-demo/public-booking
 import { MomentModule } from 'angular2-moment';
 import { PublicEventService } from "app/services/public-event/public-event.service";
 import { MyRequestsComponent } from './my-requests/my-requests.component';
+import { AuthGuardService } from "app/services/auth-guard/auth-guard.service";
 
 @NgModule({
   declarations: [
@@ -56,6 +57,7 @@ import { MyRequestsComponent } from './my-requests/my-requests.component';
   ],
   providers: [ // creators of services that this module contributes to the global collection of services; they become accessible in all parts of the app.
     ApiService,
+    AuthGuardService,
     ConfigService,
     PublicEventService,
     ScheduleService,
