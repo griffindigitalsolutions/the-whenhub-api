@@ -51,7 +51,7 @@ Setup json-server https://www.npmjs.com/package/json-server
 `npm install -g json-server`
 
 Change directory into the json-server 
-`cd src/the-whenhub-api-json-server`
+`cd the-whenhub-api-json-server`
 You need to start the json server
 `json-server --watch events.json`
 You should now be able to go to localhost:3000 and see the events (initially, none exist)
